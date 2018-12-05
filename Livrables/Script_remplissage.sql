@@ -4,9 +4,9 @@ insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingred
 insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Mozarella', 'Frais', '08/12/2018');
 insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Piment d''espelette', 'Longue conserv', NULL);
 insert into Recettes (nom_recette, temps_cuisson_recette, temps_preparation_recette) values ('Pizza', 10, 20);
-insert into Composition (id_recette, id_ingredient, quantite_ingredient_recette) values (1, 2, 1);
-insert into Composition (id_recette, id_ingredient, quantite_ingredient_recette) values (1, 1, 5);
-insert into Composition (id_recette, id_ingredient, quantite_ingredient_recette) values (1, 3, 2);
+insert into Composition_Recette (id_recette, id_ingredient, quantite_ingredient_recette) values (1, 2, 1);
+insert into Composition_Recette (id_recette, id_ingredient, quantite_ingredient_recette) values (1, 1, 5);
+insert into Composition_Recette (id_recette, id_ingredient, quantite_ingredient_recette) values (1, 3, 2);
 insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_materiel) values ('Fourchette', 'Matériel commun', 'Propre', 150);
 insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_materiel) values ('Couteau', 'Matériel commun', 'Propre', 150);
 insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_materiel) values ('Cuillère', 'Matériel commun', 'Propre', 150);
@@ -16,7 +16,7 @@ insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_mater
 insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_materiel) values ('Assiette creuse', 'Matériel commun', 'Propre', 30);
 insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_materiel) values ('Petite Assiette', 'Matériel commun', 'Propre', 150);
 insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_materiel) values ('Assiette à dessert', 'Matériel commun', 'Propre', 150);
-insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_materiel) values ('Cuitochette', 'Matériel commun', 'Propre', 150);
+insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_materiel) values ('Cuitochette', 'Matériel commun', 'Sale', 150);
 insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_materiel) values ('Verre à eau', 'Matériel commun', 'Propre', 150);
 insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_materiel) values ('Verre à vin', 'Matériel commun', 'Propre', 150);
 insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_materiel) values ('Flute de champagne', 'Matériel commun', 'Propre', 150);
