@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace MasterChefCuisine
 {
-    static class Program
+    static class Mainclass
     {
         /// <summary>
         /// Point d'entrée principal de l'application.
@@ -14,9 +14,9 @@ namespace MasterChefCuisine
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Form1());
         }
     }
 }
