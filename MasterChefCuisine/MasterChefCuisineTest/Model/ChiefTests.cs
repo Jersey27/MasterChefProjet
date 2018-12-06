@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisineTest.Model
 {
+    [TestClass]
     class ChiefTests
     {
+        [TestMethod]
+        public void AssignPlate()
+        {
+
+        }
+
+        public void NotifyNewCommand()
+        {
+
+        }
+
     }
 }

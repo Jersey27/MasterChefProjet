@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisineTest.Controler
 {
+    [TestClass]
     class KitchenControlerTests
     {
+        [TestMethod]
+        public void Initiate()
+        {
+
+        }
     }
 }

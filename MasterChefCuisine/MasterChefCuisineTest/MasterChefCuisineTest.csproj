@@ -49,8 +49,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controler\KitchenControlerTests.cs" />
+    <Compile Include="Model\ChiefTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\IViewTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
