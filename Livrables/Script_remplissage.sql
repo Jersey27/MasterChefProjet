@@ -36,6 +36,6 @@ insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_mater
 insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_materiel) values ('Entonnoir', 'Matériel de cuisine', 'Propre', 1);
 insert into Materiel (nom_materiel, type_materiel, etat_materiel, quantite_materiel) values ('Couteau de cuisine', 'Matériel de cuisine', 'Propre', 5);
 insert into Machines (nom_machine, etat_machine) values ('Four', 'Vide');
-insert into Machines (nom_machine, etat_machine) values ('Micro-ondes', 'Vide');
-insert into Machines (nom_machine, etat_machine) values ('Machine à pain', 'Vide');
+insert into Machines (nom_machine, etat_machine) values ('Lave-vaisselle', 'Vide');
+insert into Machines (nom_machine, etat_machine) values ('Machine à laver', 'Vide');
 insert into Machines (nom_machine, etat_machine) values ('Frigo', 'Plein');
