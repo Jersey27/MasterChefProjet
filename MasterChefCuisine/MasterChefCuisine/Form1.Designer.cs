@@ -1,4 +1,4 @@
-﻿namespace MasterChefInfo
+﻿namespace MasterChefCuisine
 {
     partial class Form1
     {

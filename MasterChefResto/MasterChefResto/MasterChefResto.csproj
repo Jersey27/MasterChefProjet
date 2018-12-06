@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3CEC414F-DB8F-44B2-B686-4AA2A14119DC}</ProjectGuid>
+    <ProjectGuid>{82C3CA34-77EE-42E1-BF93-299703D4249A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MasterChefInfo</RootNamespace>
-    <AssemblyName>MasterChefInfo</AssemblyName>
+    <RootNamespace>MasterChefResto</RootNamespace>
+    <AssemblyName>MasterChefResto</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
