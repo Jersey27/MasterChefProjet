@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    class MasterHotel
+    public class MasterHotel
     {
-        private int money;
-        public void Sum(int monet)
-        {
-            this.money = this.money + monet;
-        }
-
         public void SearchTable()
         {
             //si une table est reconnue comme libre et possède un nombre suffisant de place (choix de la plus petite correspondant à cette dernière contrainte).

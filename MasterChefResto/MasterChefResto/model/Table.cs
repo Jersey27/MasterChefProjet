@@ -10,5 +10,6 @@ namespace MasterChefResto.model
     {
         private bool bread;
         private bool water;
+        private int numberOfPlace;
     }
 }
