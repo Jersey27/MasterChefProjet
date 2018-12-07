@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Controler\KitchenControler.cs" />
     <Compile Include="Model\Chief.cs" />
+    <Compile Include="Model\Command.cs" />
     <Compile Include="Model\CommandObserver.cs" />
     <Compile Include="Model\Cook.cs" />
     <Compile Include="Model\DirtyDisheCounter.cs" />

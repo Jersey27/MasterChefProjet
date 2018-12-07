@@ -8,23 +8,28 @@ namespace MasterChefCuisine.Model
 {
     public class Chief
     {
-        static Chief instance = new Chief();
-        private Chief()
+        private List<Recipe> recipes;
+        static Chief instance;
+        SocketManagement socket;
+        private Chief(bool isTest)
         {
-
+            
         }
         public void assignPlate()
         {
 
         }
-
-        public void notifyNewCommand()
+        public void newMenu()
         {
 
         }
-        public static Chief getInstance()
+        public static Chief getInstance(bool isTest)
         {
-            return instance;
+            if(instance != null)
+            {
+                return instance;
+            }
+            return new Chief(isTest);
         }
     }
 }

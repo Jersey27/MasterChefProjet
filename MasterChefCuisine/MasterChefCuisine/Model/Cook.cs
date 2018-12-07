@@ -1,17 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    public class Cook : Preparator, ICook
+    public class Cook : Preparator
     {
-
-        void ICook.Cook(Recipe recipe)
+        private List<Command> commands;
+        bool isBusy = false;
+        public Cook()
         {
-            throw new NotImplementedException();
+
+        }
+        public void cooking(Command command)
+        {
+            if
+            if (!isBusy)
+            {
+                isBusy = true;
+                Thread.Sleep(command.recipe.tpsPrep * 1000);
+                if()
+            }
+            
         }
     }
 }

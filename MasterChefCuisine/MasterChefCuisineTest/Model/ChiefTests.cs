@@ -12,7 +12,7 @@ namespace MasterChefCuisineTest.Model
     [TestClass]
     public class ChiefTests
     {
-        Chief chief = Chief.getInstance();
+        Chief chief = Chief.getInstance(true);
         SocketManagement socket = SocketManagement.getInstance(true);
         Cook cook = new Cook();
         [TestMethod]

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    interface ICook
+    public interface ICook
     {
-        void Cook(Recipe recipe);
+        void Cooking(Command command);
     }
 }
