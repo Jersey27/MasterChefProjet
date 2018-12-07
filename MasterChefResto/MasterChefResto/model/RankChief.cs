@@ -9,5 +9,6 @@ namespace MasterChefResto.model
     class RankChief
     {
         private bool Busy { get; set; }
+        private List<String> menu = new List<String>();
     }
 }
