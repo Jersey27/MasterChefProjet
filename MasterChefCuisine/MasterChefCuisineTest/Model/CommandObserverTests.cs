@@ -1,14 +1,15 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MasterChefCuisineTest
+namespace MasterChefCuisineTest.Model
 {
     [TestClass]
     public class CommandObserverTests
     {
         [TestMethod]
-        public void NotifyCommand()
+        public void NotifyCommandTest()
         {
+            Assert.Fail();
         }
     }
 }

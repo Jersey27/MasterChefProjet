@@ -2,15 +2,15 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MasterChefCuisine.Model;
 
-namespace MasterChefCuisineTest
+namespace MasterChefCuisineTest.Model
 {
     [TestClass]
     public class PreparatorTests
     {
         [TestMethod]
-        public void preparerLegumes(Ingredient ingredient)
+        public void preparerLegumesTest(Ingredient ingredient)
         {
-
+            Assert.Fail();
         }
     }
 }

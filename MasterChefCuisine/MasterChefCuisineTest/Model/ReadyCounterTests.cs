@@ -2,15 +2,15 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MasterChefCuisine.Model;
 
-namespace MasterChefCuisineTest
+namespace MasterChefCuisineTest.Model
 {
     [TestClass]
     public class ReadyCounterTests
     {
         [TestMethod]
-        public void SendPlate(Recipe recipe)
+        public void SendPlateTest(Recipe recipe)
         {
-
+            Assert.Fail();
         }
     }
 }

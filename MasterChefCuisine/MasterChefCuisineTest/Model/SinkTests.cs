@@ -1,14 +1,15 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MasterChefCuisineTest
+namespace MasterChefCuisineTest.Model
 {
     [TestClass]
     public class SinkTests
     {
         [TestMethod]
-        public void wash()
+        public void WashTest()
         {
+            Assert.Fail();
         }
     }
 }

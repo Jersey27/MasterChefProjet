@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    public class WashingMachine : Machine
+    public class WashingMachine : IMachine
     {
         bool isWashing;
 

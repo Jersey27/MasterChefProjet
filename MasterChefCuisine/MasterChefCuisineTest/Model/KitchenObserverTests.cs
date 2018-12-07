@@ -1,14 +1,15 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MasterChefCuisineTest
+namespace MasterChefCuisineTest.Model
 {
     [TestClass]
     public class KitchenObserverTests
     {
         [TestMethod]
-        public void update()
+        public void updateTest()
         {
+            Assert.Fail();
         }
     }
 }

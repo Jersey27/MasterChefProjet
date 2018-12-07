@@ -8,9 +8,9 @@ namespace MasterChefCuisineTest.Model
     public class PlungerTests
     {
         Plunger plunger = new Plunger();
-        Machine sink = new Sink();
-        Machine dishwasher = new DishWasher();
-        Machine whashingMachine = new WashingMachine();
+        IMachine sink = new Sink();
+        IMachine dishwasher = new DishWasher();
+        IMachine whashingMachine = new WashingMachine();
 
         SQLQuery query;
 

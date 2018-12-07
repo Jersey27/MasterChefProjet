@@ -21,6 +21,7 @@ namespace MasterChefCuisineTest.Model
             Assert.Fail();
             
         }
+
         [TestMethod]
         public void getInstanceTest()
         {

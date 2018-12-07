@@ -54,6 +54,7 @@
     <Compile Include="Model\DirtyDisheCounter.cs" />
     <Compile Include="Model\DishWasher.cs" />
     <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\ICook.cs" />
     <Compile Include="Model\Ingredient.cs" />
     <Compile Include="Model\Kitchen.cs" />
     <Compile Include="Model\KitchenObserver.cs" />

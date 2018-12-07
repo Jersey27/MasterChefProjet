@@ -1,14 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MasterChefCuisineTest
+namespace MasterChefCuisineTest.Model
 {
     [TestClass]
     public class SQLQueryTests
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
+       
     }
 }

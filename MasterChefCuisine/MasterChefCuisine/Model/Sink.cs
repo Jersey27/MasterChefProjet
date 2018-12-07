@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    public class Sink : Machine
+    public class Sink : IMachine
     {
 
         public void Wash()
