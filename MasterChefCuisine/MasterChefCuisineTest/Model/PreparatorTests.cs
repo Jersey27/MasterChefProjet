@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MasterChefCuisine.Model;
 
 namespace MasterChefCuisineTest
 {
@@ -9,6 +10,7 @@ namespace MasterChefCuisineTest
         [TestMethod]
         public void preparerLegumes(Ingredient ingredient)
         {
+
         }
     }
 }

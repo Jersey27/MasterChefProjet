@@ -9,6 +9,7 @@ namespace MasterChefCuisineTest
         [TestMethod]
         public void wash()
         {
+            Assert.Fail();
         }
 
         [TestMethod]

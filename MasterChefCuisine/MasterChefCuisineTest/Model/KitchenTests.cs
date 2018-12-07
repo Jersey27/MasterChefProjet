@@ -6,9 +6,5 @@ namespace MasterChefCuisineTest
     [TestClass]
     public class KitchenTests
     {
-        [TestMethod]
-        public Kitchen()
-        {
-        }
     }
 }
