@@ -8,16 +8,38 @@ namespace MasterChefCuisine.Model
 {
     public class SocketManagement
     {
-        private static SocketManagement instance = new SocketManagement();
+        private static SocketManagement instance;
+        private ObserverChief chief;
 
-        private SocketManagement()
+        private SocketManagement(bool isTest)
+        {
+            if(!isTest)
+            {
+
+            }
+        }
+
+        public void testNewCommand()
         {
 
         }
 
-        public static SocketManagement getInstance()
+        public void addChiefObserver(ObserverChief chief)
         {
-            return instance;
+
+        }
+        public void UpdateChiefObserver()
+        {
+
+        }
+        
+        public static SocketManagement getInstance(bool isTest)
+        {
+            if (instance != null)
+            {
+                return instance;
+            }
+            return new SocketManagement(isTest);
         }
     }
 }

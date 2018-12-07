@@ -7,17 +7,11 @@ namespace MasterChefCuisineTest.Model
     [TestClass]
     public class SQLConnectorTests
     {
-        SQLConnector instance;
-        [TestMethod]
-        public void ConnectTest()
-        {
-            Assert.Fail();
-        }
+        SQLConnector instance = SQLConnector.getInstance(true);
 
         [TestMethod]
-        public void getInstance()
+        public void getInstanceTest()
         {
-            instance = SQLConnector.getInstance(true);
             Assert.IsNotNull(instance);
         }
     }

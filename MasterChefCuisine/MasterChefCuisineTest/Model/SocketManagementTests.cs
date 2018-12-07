@@ -7,11 +7,10 @@ namespace MasterChefCuisineTest.Model
     [TestClass]
     public class SocketManagementTests
     {
-        SocketManagement socket;
+        SocketManagement socket = SocketManagement.getInstance(true);
         [TestMethod]
         public void getInstanceTest()
         {
-            socket = SocketManagement.getInstance();
             Assert.IsNotNull(socket);
         }
     }

@@ -59,6 +59,7 @@
     <Compile Include="Model\Kitchen.cs" />
     <Compile Include="Model\KitchenObserver.cs" />
     <Compile Include="Model\IMachine.cs" />
+    <Compile Include="Model\ObserverChief.cs" />
     <Compile Include="Model\Plunger.cs" />
     <Compile Include="Model\Position.cs" />
     <Compile Include="Model\Preparator.cs" />

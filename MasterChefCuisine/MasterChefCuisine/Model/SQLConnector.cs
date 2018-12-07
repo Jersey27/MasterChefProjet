@@ -17,11 +17,6 @@ namespace MasterChefCuisine.Model
            
         }
 
-        public void connect(bool isTest)
-        {
-            
-        }
-
         public static SQLConnector getInstance(bool isTest)
         { 
             if (instance != null)

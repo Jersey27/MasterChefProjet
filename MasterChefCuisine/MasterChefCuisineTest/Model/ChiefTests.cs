@@ -12,20 +12,18 @@ namespace MasterChefCuisineTest.Model
     [TestClass]
     public class ChiefTests
     {
-        Chief chief;
+        Chief chief = Chief.getInstance();
+        SocketManagement socket = SocketManagement.getInstance(true);
+        Cook cook = new Cook();
         [TestMethod]
         public void AssignPlateTest()
         {
-            chief = Chief.getInstance();
-            chief.assignPlate();
-            Assert.Fail();
             
         }
 
         [TestMethod]
         public void getInstanceTest()
         {
-            chief = Chief.getInstance();
             Assert.IsNotNull(chief);
         }
 
