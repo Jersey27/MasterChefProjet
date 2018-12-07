@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    public class Cook : Preparator
+    public class Cook : Preparator, ICook
     {
+
+        void ICook.Cook(Recipe recipe)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

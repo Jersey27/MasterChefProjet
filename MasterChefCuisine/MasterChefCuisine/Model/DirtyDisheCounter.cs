@@ -8,5 +8,9 @@ namespace MasterChefCuisine.Model
 {
     public class DirtyDisheCounter
     {
+        void wash()
+        {
+            bool isWashing;
+        }
     }
 }

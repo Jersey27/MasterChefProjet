@@ -9,7 +9,7 @@ namespace MasterChefCuisine.Model
     public class Plunger : Preparator
     {
 
-        public void wash()
+        public void Wash(IMachine machine)
         {
 
         }
