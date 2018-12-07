@@ -1,17 +1,15 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MasterChefCuisine.Model;
 
 namespace MasterChefCuisineTest.Model
 {
     [TestClass]
-    public class CookTests
+    public class CommandTests
     {
-        Cook cook = new Cook();
-
-        public void CookingTest()
+        [TestMethod]
+        public void TestMethod1()
         {
-            Assert.Fail();
+
         }
     }
 }
