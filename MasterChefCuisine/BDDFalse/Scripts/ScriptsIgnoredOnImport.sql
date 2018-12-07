@@ -32,7 +32,7 @@ GO
 insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Piment d''espelette', 'Longue conserv', NULL);
 GO
 
-insert into Recettes (nom_recette, temps_cuisson_recette, temps_preparation_recette) values ('Pizza', 10, 20);
+insert into Recettes (nom_recette, temps_cuisson_recette, temps_preparation_recette) values ('Pizza', 10, 20, 8);
 GO
 
 insert into Composition_Recette (id_recette, id_ingredient, quantite_ingredient_recette) values (1, 2, 1);

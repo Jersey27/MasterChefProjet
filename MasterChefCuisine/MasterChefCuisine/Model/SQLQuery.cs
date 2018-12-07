@@ -10,5 +10,15 @@ namespace MasterChefCuisine.Model
     {
         SQLQuery query;
             
+
+        public List<String> selectFromDB()
+        {
+
+        }
+
+        public List<String> insertIntoDB()
+        {
+
+        }
     }
 }
