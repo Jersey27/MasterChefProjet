@@ -8,6 +8,6 @@ namespace MasterChefResto.model
 {
     class Customer
     {
-        private bool served;
+        private bool Served { get; set; }
     }
 }

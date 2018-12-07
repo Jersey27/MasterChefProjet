@@ -6,8 +6,20 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    class RoomClerk
+    public class RoomClerk
     {
+        static RoomClerk instance = new RoomClerk();
+
+        private RoomClerk()
+        {
+
+        }
+
+        public void CheckStateTable()
+        {
+
+        }
+
         public void DistributeWater()
         {
 
@@ -16,6 +28,11 @@ namespace MasterChefResto.model
         public void DistributeBread()
         {
 
+        }
+
+        public static RoomClerk getInstance()
+        {
+            return instance;
         }
     }
 }

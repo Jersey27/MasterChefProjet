@@ -8,8 +8,8 @@ namespace MasterChefResto.model
 {
     class CustomerType
     {
-        private int timeEatStarter;
-        private int timeEatMainCourse;
-        private int timeEatDessert;
+        private int TimeEatStarter { get; set; }
+        private int TimeEatMainCourse { get; set; }
+        private int TimeEatDessert { get; set; }
     }
 }

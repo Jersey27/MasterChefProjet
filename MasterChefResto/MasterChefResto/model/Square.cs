@@ -8,6 +8,6 @@ namespace MasterChefResto.model
 {
     class Square
     {
-        private int squareNum;
+        private int SquareNum { get; set; }
     }
 }

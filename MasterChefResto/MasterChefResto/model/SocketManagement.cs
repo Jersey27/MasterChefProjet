@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    public class Room
+    public class SocketManagement
     {
-        static Room instance = new Room();
+        private static SocketManagement instance = new SocketManagement();
 
-        private Room()
+        private SocketManagement()
         {
 
         }
 
-        public static Room getInstance()
+        public static SocketManagement getInstance()
         {
             return instance;
         }

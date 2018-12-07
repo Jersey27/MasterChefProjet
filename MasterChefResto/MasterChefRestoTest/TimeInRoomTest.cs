@@ -5,14 +5,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MasterChefRestoTest
 {
     [TestClass]
-    public class SQLConnectorTest
+    public class TimeInRoomTest
     {
-        SQLConnector instance = SQLConnector.getInstance(true);
-
+        TimeInRoom time;
         [TestMethod]
         public void getInstanceTest()
         {
-            Assert.IsNotNull(instance);
+            time = TimeInRoom.getInstance();
+            Assert.IsNotNull(time);
         }
     }
 }

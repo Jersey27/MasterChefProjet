@@ -60,10 +60,12 @@
     <Compile Include="model\RankChief.cs" />
     <Compile Include="model\Room.cs" />
     <Compile Include="model\RoomClerk.cs" />
+    <Compile Include="model\SocketManagement.cs" />
     <Compile Include="model\SQLConnector.cs" />
     <Compile Include="model\SQLQuery.cs" />
     <Compile Include="model\Square.cs" />
     <Compile Include="model\Table.cs" />
+    <Compile Include="model\TimeInRoom.cs" />
     <Compile Include="model\Waiter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,6 +8,6 @@ namespace MasterChefResto.model
 {
     class RankChief
     {
-        private bool busy;
+        private bool Busy { get; set; }
     }
 }

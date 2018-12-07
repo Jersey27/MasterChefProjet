@@ -7,11 +7,12 @@ namespace MasterChefRestoTest
     [TestClass]
     public class MasterHotelTest
     {
-  
+        MasterHotel masterHotel;
         [TestMethod]
-        public void testclass()
+        public void getInstanceTest()
         {
-            
+            masterHotel = MasterHotel.getInstance();
+            Assert.IsNotNull(masterHotel);
         }
     }
 }

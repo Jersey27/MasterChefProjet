@@ -60,6 +60,8 @@
     <Compile Include="SQLQueryTest.cs" />
     <Compile Include="TableTest.cs" />
     <Compile Include="CommandTest.cs" />
+    <Compile Include="TimeInRoomTest.cs" />
+    <Compile Include="SocketManagementTest.cs" />
     <Compile Include="WaiterTest.cs" />
   </ItemGroup>
   <ItemGroup>

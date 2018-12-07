@@ -8,8 +8,8 @@ namespace MasterChefResto.model
 {
     class Command
     {
-        private string starter;
-        private string mainCourse;
-        private string dessert;
+        private string Starter { get; set; }
+        private string MainCourse { get; set; }
+        private string Dessert { get; set; }
     }
 }

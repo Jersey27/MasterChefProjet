@@ -7,8 +7,22 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    class SQLConnector
+    public class SQLConnector
     {
-        private SqlConnection connection;
+        static SQLConnector instance;
+
+        private SQLConnector(bool isTest)
+        {
+
+        }
+
+        public static SQLConnector getInstance(bool isTest)
+        {
+            if (instance != null)
+            {
+                return instance;
+            }
+            return new SQLConnector(isTest);
+        }
     }
 }

@@ -8,8 +8,9 @@ namespace MasterChefResto.model
 {
     class Table
     {
-        private bool bread;
-        private bool water;
-        private int numberOfPlace;
+        private bool Bread { get; set; }
+        private bool Water { get; set; }
+        private int NumberOfPlace { get; set; }
+        private String State_Diner { get; set; }
     }
 }

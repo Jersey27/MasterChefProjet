@@ -5,14 +5,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MasterChefRestoTest
 {
     [TestClass]
-    public class SQLConnectorTest
+    public class SocketManagementTest
     {
-        SQLConnector instance = SQLConnector.getInstance(true);
-
+        SocketManagement socket;
         [TestMethod]
         public void getInstanceTest()
         {
-            Assert.IsNotNull(instance);
+            socket = SocketManagement.getInstance();
+            Assert.IsNotNull(socket);
         }
     }
 }
