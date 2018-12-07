@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterChefCuisine", "Master
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterChefCuisineTest", "MasterChefCuisineTest\MasterChefCuisineTest.csproj", "{699C267F-7217-4712-8107-8FEC052DD043}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BDDFalse", "BDDFalse\BDDFalse.sqlproj", "{F2200C4F-DA22-45CF-90C8-5038842CA272}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{699C267F-7217-4712-8107-8FEC052DD043}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{699C267F-7217-4712-8107-8FEC052DD043}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{699C267F-7217-4712-8107-8FEC052DD043}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2200C4F-DA22-45CF-90C8-5038842CA272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2200C4F-DA22-45CF-90C8-5038842CA272}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2200C4F-DA22-45CF-90C8-5038842CA272}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F2200C4F-DA22-45CF-90C8-5038842CA272}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2200C4F-DA22-45CF-90C8-5038842CA272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2200C4F-DA22-45CF-90C8-5038842CA272}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
