@@ -8,5 +8,6 @@ namespace MasterChefResto.controller
 {
     class RestaurantController
     {
+
     }
 }

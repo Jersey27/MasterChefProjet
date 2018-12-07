@@ -8,6 +8,25 @@ namespace MasterChefRestoTest
     public class RoomClerkTest
     {
         RoomClerk roomClerk;
+
+        [TestMethod]
+        public void CheckTableTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void DistributeWaterTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void DistributeBreadTest()
+        {
+            Assert.Fail();
+        }
+
         [TestMethod]
         public void getInstanceTest()
         {
