@@ -22,6 +22,12 @@ namespace MasterChefCuisineTest.Model
         }
 
         [TestMethod]
+        public void NewMenu()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod]
         public void getInstanceTest()
         {
             Assert.IsNotNull(chief);
