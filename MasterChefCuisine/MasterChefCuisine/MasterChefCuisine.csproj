@@ -64,7 +64,7 @@
     <Compile Include="Model\Sink.cs" />
     <Compile Include="Model\SocketManagement.cs" />
     <Compile Include="Model\SQLConnector.cs" />
-    <Compile Include="Model\SQLQuerry.cs" />
+    <Compile Include="Model\SQLQuery.cs" />
     <Compile Include="Model\TempStorage.cs" />
     <Compile Include="Model\WashingMachine.cs" />
     <Compile Include="View\Form1.cs">

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    public abstract class SQLQuerry
+    public abstract class SQLQuery
     {
     }
 }
