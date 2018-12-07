@@ -16,9 +16,16 @@ namespace MasterChefCuisine.Model
         public List<KitchenObserver> observers;
         public List<Sink> sinks;
 
+        private static Kitchen instance = new Kitchen();
+
         public Kitchen()
         {
 
+        }
+
+        public static Kitchen getInstance()
+        {
+            return instance;
         }
     }
 }

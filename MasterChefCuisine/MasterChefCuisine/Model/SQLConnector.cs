@@ -8,14 +8,27 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    public abstract class SQLConnector
+    public class SQLConnector
     {
-        SQLConnector instance;
-        
+        static SQLConnector instance;
+
+        private SQLConnector(bool isTest)
+        {
+           
+        }
 
         public void connect(bool isTest)
         {
             
+        }
+
+        public static SQLConnector getInstance(bool isTest)
+        { 
+            if (instance != null)
+            {
+                return instance;
+            }
+            return new SQLConnector(isTest);
         }
     }
 }

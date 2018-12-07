@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    public abstract class SocketManagement
+    public class SocketManagement
     {
-        
+        private static SocketManagement instance = new SocketManagement();
+
+        private SocketManagement()
+        {
+
+        }
+
+        public static SocketManagement getInstance()
+        {
+            return instance;
+        }
     }
 }
