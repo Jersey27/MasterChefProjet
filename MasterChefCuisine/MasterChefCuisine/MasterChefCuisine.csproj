@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +57,7 @@
     <Compile Include="Model\Ingredient.cs" />
     <Compile Include="Model\Kitchen.cs" />
     <Compile Include="Model\KitchenObserver.cs" />
+    <Compile Include="Model\Machine.cs" />
     <Compile Include="Model\Plunger.cs" />
     <Compile Include="Model\Position.cs" />
     <Compile Include="Model\Preparator.cs" />
@@ -100,6 +102,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BDDFalse\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BDDFalse\BDDFalse.sqlproj">
+      <Project>{f2200c4f-da22-45cf-90c8-5038842ca272}</Project>
+      <Name>BDDFalse</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

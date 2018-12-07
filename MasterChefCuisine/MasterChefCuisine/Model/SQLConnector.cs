@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    public class SQLConnector
+    public abstract class SQLConnector
     {
-        SqlConnection connection;
+        SQLConnector instance;
+        
 
-        public void connect()
+        public void connect(bool isTest)
         {
-
+            
         }
     }
 }

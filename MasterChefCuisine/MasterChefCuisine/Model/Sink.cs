@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    public class Sink
+    public class Sink : Machine
     {
-        public void wash()
-        {
 
+        public void Wash()
+        {
+            throw new NotImplementedException();
         }
     }
 }

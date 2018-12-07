@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    public class WashingMachine
+    public class WashingMachine : Machine
     {
         bool isWashing;
 
-        public void wash()
+        public void Wash()
         {
-
+            throw new NotImplementedException();
         }
     }
 }

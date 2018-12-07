@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    public abstract class SQLQuery
+    public interface Machine
     {
-        SQLQuery query;
-            
+        void Wash();
     }
 }

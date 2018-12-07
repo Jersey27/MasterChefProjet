@@ -1,21 +1,30 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MasterChefCuisine.Model;
 
-namespace MasterChefCuisineTest
+namespace MasterChefCuisineTest.Model
 {
     [TestClass]
     public class PlungerTests
     {
+        Plunger plunger = new Plunger();
+        Machine sink = new Sink();
+        Machine dishwasher = new DishWasher();
+        Machine whashingMachine = new WashingMachine();
+
+        SQLQuery query;
+
         [TestMethod]
-        public void wash()
+        public void washTest()
         {
+            plunger.Wash(dishwasher);
             Assert.Fail();
         }
 
         [TestMethod]
-        public void Store()
+        public void StoreTest()
         {
-
+            Assert.Fail();
         }
     }
 }

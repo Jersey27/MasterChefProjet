@@ -10,6 +10,7 @@ namespace MasterChefCuisineTest
         [TestMethod]
         public void SendPlate(Recipe recipe)
         {
+
         }
     }
 }
