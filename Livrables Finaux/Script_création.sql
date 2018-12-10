@@ -1,32 +1,33 @@
 use masterchef;
 DROP TABLE IF EXISTS Ingredients ;
 CREATE TABLE Ingredients (id_ingredient INT IDENTITY NOT NULL,
-nom_ingredient VARCHAR(255),
+nom_ingredient VARCHAR(255) NOT NULL,
 type_ingredient VARCHAR(50) NOT NULL CHECK (type_ingredient IN('Frais','Surgelé', 'Longue conserv')),
-quantite_ingredient TINYINT,
+quantite_ingredient TINYINT NOT NULL,
 date_peremption_ingredient DATE,
+ingredient_preparable BOOLEAN NOT NULL,
 PRIMARY KEY (id_ingredient));
 
 DROP TABLE IF EXISTS Materiel ;
 CREATE TABLE Materiel (id_materiel INT IDENTITY NOT NULL,
-nom_materiel VARCHAR(255),
+nom_materiel VARCHAR(255) NOT NULL,
 type_materiel VARCHAR(50) NOT NULL CHECK (type_materiel IN('Matériel commun','Matériel de restauration', 'Matériel de cuisine')),
 etat_materiel VARCHAR(50) NOT NULL CHECK (etat_materiel IN('Propre','Sale', 'En machine')),
-quantite_materiel TINYINT,
+quantite_materiel TINYINT NOT NULL,
 PRIMARY KEY (id_materiel));
 
 DROP TABLE IF EXISTS Machines ;
 CREATE TABLE Machines (id_machine INT IDENTITY NOT NULL,
-nom_machine VARCHAR(255),
+nom_machine VARCHAR(255) NOT NULL,
 etat_machine VARCHAR(50) NOT NULL CHECK (etat_machine IN('Allumé','Vide', 'Plein')),
 PRIMARY KEY (id_machine));
 
 DROP TABLE IF EXISTS Recettes ;
 CREATE TABLE Recettes (id_recette INT IDENTITY NOT NULL,
-nom_recette VARCHAR(255),
+nom_recette VARCHAR(255) NOT NULL,
 temps_cuisson_recette SMALLINT,
 temps_repos_recette SMALLINT,
-temps_preparation_recette SMALLINT,
+temps_preparation_recette SMALLINT NULL,
 PRIMARY KEY (id_recette));
 
 DROP TABLE IF EXISTS Composition_Recette ;

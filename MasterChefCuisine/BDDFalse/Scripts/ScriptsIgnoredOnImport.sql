@@ -20,19 +20,19 @@ GO
 use masterchef;
 GO
 
-insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Tomate', 'Longue conserv', NULL);
+insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Tomate', 'Longue conserv', NULL, TRUE);
 GO
 
-insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Pâte à pizza', 'Frais', '08/12/2018');
+insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Pâte à pizza', 'Frais', '08/12/2018', FALSE);
 GO
 
-insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Mozarella', 'Frais', '08/12/2018');
+insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Mozarella', 'Frais', '08/12/2018', TRUE);
 GO
 
-insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Piment d''espelette', 'Longue conserv', NULL);
+insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Piment d''espelette', 'Longue conserv', NULL, TRUE);
 GO
 
-insert into Recettes (nom_recette, temps_cuisson_recette, temps_preparation_recette) values ('Pizza', 10, 20, 8);
+insert into Recettes (nom_recette, temps_cuisson_recette, temps_preparation_recette) values ('Pizza', 10, 20);
 GO
 
 insert into Composition_Recette (id_recette, id_ingredient, quantite_ingredient_recette) values (1, 2, 1);
