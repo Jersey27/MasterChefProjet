@@ -2,18 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    public class MasterHotel
+    public class MasterHotel : Staff
     {
         static MasterHotel instance = new MasterHotel();
 
-        private MasterHotel()
+        public MasterHotel()
         {
-
+            Thread MasterHotelThread;
+            MasterHotelThread = new Thread(new ThreadStart(MasterHotelLoop));
         }
+
+        private void MasterHotelLoop()
+        {
+            /*throw new NotImplementedException();*/
+        }
+
         public void SearchTable(int groupCustomerId)
         {
 

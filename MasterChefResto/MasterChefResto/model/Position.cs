@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    public class RankChief : Staff
+    public class Position
     {
-        public bool Busy { get; set; }
-        public List<String> menu = new List<String>();
-
+        public int PosX { get; set; }
+        public int PosY { get; set; }
+        public int Id { get; set; }
     }
 }

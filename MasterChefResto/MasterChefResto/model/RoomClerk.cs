@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    public class RoomClerk
+    public class RoomClerk : Staff
     {
         static RoomClerk instance = new RoomClerk();
 
@@ -17,17 +17,20 @@ namespace MasterChefResto.model
 
         public void CheckStateTable()
         {
-
+            foreach(Table table in Room.tableList)
+            {
+                if(!table.Bread || !table.Water)
+                {
+                    //se déplace à la position de la table table.tableId
+                    Distribute(table);
+                }
+            }
         }
 
-        public void DistributeWater()
+        public void Distribute(Table table)
         {
-
-        }
-
-        public void DistributeBread()
-        {
-
+            table.Bread = true;
+            table.Water = true;
         }
 
         public static RoomClerk getInstance()

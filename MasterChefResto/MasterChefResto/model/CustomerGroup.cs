@@ -8,14 +8,13 @@ namespace MasterChefResto.model
 {
     public class CustomerGroup
     {
-        protected int GroupNumber { get; set; }
+        public int GroupNumber { get; set; }
         public int NbrCustomerInGroup { get; set; }
         private int TableAssigned { get; set; }
         List<Customer> customerList = new List<Customer>();
 
-        public CustomerGroup(int ID)
+        public CustomerGroup()
         {
-            this.GroupNumber = ID;
             Random random = new Random();
             this.NbrCustomerInGroup = random.Next(1, 10);
             int increment = 0;

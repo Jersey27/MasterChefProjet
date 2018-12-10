@@ -60,6 +60,7 @@
     <Compile Include="model\Customer.cs" />
     <Compile Include="model\CustomerGroup.cs" />
     <Compile Include="model\MasterHotel.cs" />
+    <Compile Include="model\Position.cs" />
     <Compile Include="model\RankChief.cs" />
     <Compile Include="model\Room.cs" />
     <Compile Include="model\RoomClerk.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="model\SQLConnector.cs" />
     <Compile Include="model\SQLQuery.cs" />
     <Compile Include="model\Square.cs" />
+    <Compile Include="model\Staff.cs" />
     <Compile Include="model\Table.cs" />
     <Compile Include="model\TimeInRoom.cs" />
     <Compile Include="model\Waiter.cs" />

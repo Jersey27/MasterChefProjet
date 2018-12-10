@@ -6,25 +6,21 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    public class Waiter : Staff
+    public class Staff
     {
-        public bool Busy { get; set; }
+        public Position position { get; set; }
 
-        public void CheckTableState()
+        public String CheckIfServiceEnded()
         {
-
-            //check the state of a table, if it is dirty without customer it must be cleaned
-            //put an eventlistener, which activate when the state of a table change to "dirty" and has no cutomers
-        }
-
-        public void SetTable()
-        {
-
-        }
-
-        public void ServeCustomer()
-        {
-
+            if(TimeInRoom.Hour >= 24)
+            {
+                return "Fin Service";
+            }
+            else if(TimeInRoom.Hour >= 22)
+            {
+                return "Fin ouverture au public";
+            }
+            return "En service";
         }
         public void MoveToTheRight()
         {

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    class Table
+    public class Table
     {
-        private int tableId;
-        private bool Bread { get; set; }
-        private bool Water { get; set; }
+        public int tableId;
+        public bool Bread { get; set; }
+        public bool Water { get; set; }
         private int NumberOfPlace { get; set; }
         private String State_Diner { get; set; }
 
