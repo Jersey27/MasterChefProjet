@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterChefRestoTest", "Mast
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BaseDeDonneeTest", "BaseDeDonneeTest\BaseDeDonneeTest.sqlproj", "{6BD68AEF-9825-4348-ABCA-1CF3565A1BA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game1", "C:\Users\bapt\source\repos\Game1\Game1\Game1.csproj", "{63E8AFF5-433D-4839-AC25-FCE5D5371516}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game1", "Game1\Game1\Game1.csproj", "{63E8AFF5-433D-4839-AC25-FCE5D5371516}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -48,7 +48,7 @@ namespace Game1
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            world.Texture = Content.Load<Texture2D>("fond");
+            world.Texture = Content.Load<Texture2D>("map");
             world.Position = new Vector2(0, 0);
         }
 
