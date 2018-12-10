@@ -78,10 +78,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BDDFalse\BDDFalse.sqlproj">
-      <Project>{f2200c4f-da22-45cf-90c8-5038842ca272}</Project>
-      <Name>BDDFalse</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MasterChefCuisine\MasterChefCuisine.csproj">
       <Project>{61064c6e-085d-4757-a70d-2dd6d6e06aca}</Project>
       <Name>MasterChefCuisine</Name>

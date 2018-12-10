@@ -104,11 +104,5 @@
   <ItemGroup>
     <Folder Include="BDDFalse\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BDDFalse\BDDFalse.sqlproj">
-      <Project>{f2200c4f-da22-45cf-90c8-5038842ca272}</Project>
-      <Name>BDDFalse</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
