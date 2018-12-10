@@ -14,8 +14,9 @@ namespace MasterChefResto.model
         {
 
         }
-        public void SearchTable()
+        public void SearchTable(int groupCustomerId)
         {
+
             //si une table est reconnue comme libre et possède un nombre suffisant de place (choix de la plus petite correspondant à cette dernière contrainte).
         }
 

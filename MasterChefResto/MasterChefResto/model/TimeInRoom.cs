@@ -21,10 +21,27 @@ namespace MasterChefResto.model
 
         public static void ThreadLoop()
         {
+            int increment = 0;
+            int nextGroupCustomerIn = 1000;
+            Random random = new Random();
             while (Thread.CurrentThread.IsAlive)
             {
                 Thread.Sleep(1000);
                 AddMinute();
+                increment++;
+                if ((Hour > 12 && Hour < 15) || (Hour > 19 && Hour < 22))
+                {
+                    if (increment == 10)
+                    {
+                        nextGroupCustomerIn = random.Next(1, 10);
+                        nextGroupCustomerIn = nextGroupCustomerIn + increment;
+                    }
+                    if (increment == nextGroupCustomerIn)
+                    {
+                        Room.CreateCustomerGroup();
+                        increment = 0;
+                    }
+                }
             }
         }
 

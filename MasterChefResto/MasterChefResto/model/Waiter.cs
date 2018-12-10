@@ -12,6 +12,7 @@ namespace MasterChefResto.model
 
         public void CheckTableState()
         {
+
             //check the state of a table, if it is dirty without customer it must be cleaned
             //put an eventlistener, which activate when the state of a table change to "dirty" and has no cutomers
         }

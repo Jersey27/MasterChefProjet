@@ -10,15 +10,15 @@ namespace MasterChefRestoTest
         TimeInRoom time;
 
         [TestMethod]
-        public void ThreadLoopTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod]
         public void AddMinuteTest()
         {
-            Assert.Fail();
+            TimeInRoom.Minute = 58;
+            TimeInRoom.Hour = 2;
+            TimeInRoom.AddMinute();
+            Assert.AreEqual(59, TimeInRoom.Minute);
+            TimeInRoom.AddMinute();
+            Assert.AreEqual(3, TimeInRoom.Hour);
+            Assert.AreEqual(0, TimeInRoom.Minute);
         }
 
         [TestMethod]
