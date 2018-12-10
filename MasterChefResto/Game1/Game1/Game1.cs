@@ -12,8 +12,8 @@ namespace Game1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private const int WINDOW_WIDTH = 1920;
-        private const int WINDOWS_HEIGHT = 1080;
+        private const int WINDOW_WIDTH = 950;
+        private const int WINDOWS_HEIGHT = 550;
         World world;
 
         public Game1()

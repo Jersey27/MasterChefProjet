@@ -12,11 +12,19 @@ namespace Game1.core
     {
         public Vector2 Position;
         public Texture2D Texture;
+        public Rectangle Source;
+        public float time;
+        public float frameTime = 0.1f;
+        public int frameIndex;
 
         public void Draw(SpriteBatch spriteBatch)
             {
                 spriteBatch.Draw(Texture, Position, Color.White);
             }
+        public enum framesIndex
+        {
+           top = 0,
+        }
     }
     
 }
