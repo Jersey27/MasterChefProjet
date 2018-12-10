@@ -5,7 +5,7 @@ nom_ingredient VARCHAR(255) NOT NULL,
 type_ingredient VARCHAR(50) NOT NULL CHECK (type_ingredient IN('Frais','Surgelé', 'Longue conserv')),
 quantite_ingredient TINYINT NOT NULL,
 date_peremption_ingredient DATE,
-ingredient_preparable BOOLEAN NOT NULL,
+ingredient_preparable BOOLEAN,
 PRIMARY KEY (id_ingredient));
 
 DROP TABLE IF EXISTS Materiel ;
@@ -27,14 +27,15 @@ CREATE TABLE Recettes (id_recette INT IDENTITY NOT NULL,
 nom_recette VARCHAR(255) NOT NULL,
 temps_cuisson_recette SMALLINT,
 temps_repos_recette SMALLINT,
-temps_preparation_recette SMALLINT NULL,
+temps_preparation_recette SMALLINT,
+nombre_parts SMALLINT NOT NULL,
 PRIMARY KEY (id_recette));
 
 DROP TABLE IF EXISTS Composition_Recette ;
 CREATE TABLE Composition_Recette (id_composition_recette INT IDENTITY NOT NULL,
-quantite_ingredient_recette INT,
-id_ingredient INT,
-id_recette INT,
+quantite_ingredient_recette INT NOT NULL,
+id_ingredient INT NOT NULL,
+id_recette INT NOT NULL,
 PRIMARY KEY (id_composition_recette));
 
 ALTER TABLE Composition_Recette ADD CONSTRAINT FK_Composition_Recette_id_ingredient FOREIGN KEY (id_ingredient) REFERENCES Ingredients (id_ingredient);

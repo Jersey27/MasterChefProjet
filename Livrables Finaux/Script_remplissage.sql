@@ -1,9 +1,9 @@
 use masterchef;
 insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Tomate', 'Longue conserv', NULL, TRUE);
 insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Pâte à pizza', 'Frais', '08/12/2018', FALSE);
-insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Mozarella', 'Frais', '08/12/2018', TRUE);
+insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Mozarella', 'Frais', '08/12/2018', FALSE);
 insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Piment d''espelette', 'Longue conserv', NULL, TRUE);
-insert into Recettes (nom_recette, temps_cuisson_recette, temps_preparation_recette) values ('Pizza', 10, 20);
+insert into Recettes (nom_recette, temps_cuisson_recette, temps_preparation_recette) values ('Pizza', 10, 20, 8);
 insert into Composition_Recette (id_recette, id_ingredient, quantite_ingredient_recette) values (1, 2, 1);
 insert into Composition_Recette (id_recette, id_ingredient, quantite_ingredient_recette) values (1, 1, 5);
 insert into Composition_Recette (id_recette, id_ingredient, quantite_ingredient_recette) values (1, 3, 2);
