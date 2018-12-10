@@ -8,6 +8,6 @@ namespace MasterChefCuisine.Model
 {
     public interface ObserverChief
     {
-        void update(int IdRecipe);
+        void Update(Command command);
     }
 }

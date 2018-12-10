@@ -8,6 +8,7 @@ namespace MasterChefCuisine.Model
 {
     public class Recipe
     {
+        public int IdRecipe { get; set; }
         public string NomRecipe { get; set; }
         public string typeRecipe { get; set; }
         public List<Ingredient> Ingredients { get; set; }

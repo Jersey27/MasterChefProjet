@@ -10,7 +10,26 @@ namespace MasterChefCuisine.Model
     {
         public void prepareLegume(Ingredient ingredient)
         {
+            TempStorage tempStorage = TempStorage.getInstance();
+            while(ingredient.quantityIngredient > 0)
+            {
+                if (tempStorage.ingStore.Exists(x => x.NomIngredient == ingredient.NomIngredient + " préparé"))
+                {
+                    foreach (Ingredient ing in tempStorage.ingStore.Where(x => x.NomIngredient == ingredient.NomIngredient + " préparé"))
+                    {
+                        ing.quantityIngredient++;
+                    }
+                }
+                else
+                {
+                    string newName = ingredient.NomIngredient.ToString() + " préparé";
+                    Ingredient IngPrep = new Ingredient { NomIngredient = newName, quantityIngredient = 1, typeIngredient = "frais", canBePrepare = false };
+                    tempStorage.ingStore.Add(IngPrep);
+                }
+                ingredient.quantityIngredient--;
 
+            }
+            ingredient.Dispose();
         }
     }
 }

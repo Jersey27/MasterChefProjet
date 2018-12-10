@@ -50,7 +50,6 @@
     <Compile Include="Controler\KitchenControler.cs" />
     <Compile Include="Model\Chief.cs" />
     <Compile Include="Model\Command.cs" />
-    <Compile Include="Model\CommandObserver.cs" />
     <Compile Include="Model\Cook.cs" />
     <Compile Include="Model\DirtyDisheCounter.cs" />
     <Compile Include="Model\DishWasher.cs" />
@@ -58,7 +57,6 @@
     <Compile Include="Model\ICook.cs" />
     <Compile Include="Model\Ingredient.cs" />
     <Compile Include="Model\Kitchen.cs" />
-    <Compile Include="Model\KitchenObserver.cs" />
     <Compile Include="Model\IMachine.cs" />
     <Compile Include="Model\ObserverChief.cs" />
     <Compile Include="Model\Plunger.cs" />

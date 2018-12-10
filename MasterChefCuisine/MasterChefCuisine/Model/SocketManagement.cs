@@ -12,7 +12,7 @@ namespace MasterChefCuisine.Model
     {
         #region variable
         private static SocketManagement instance;
-        private ObserverChief chief;
+        private List<ObserverChief> chiefs = new List<ObserverChief>();
         private IPAddress ip = IPAddress.Parse("10.176.129.194");
         private Socket socket;
         private bool service = true;
@@ -44,11 +44,14 @@ namespace MasterChefCuisine.Model
         #region observer
         public void addChiefObserver(ObserverChief chief)
         {
-
+            chiefs.Add(chief);
         }
-        public void UpdateChiefObserver()
+        public void UpdateChiefObserver(Command command)
         {
-
+            foreach (Chief chief in chiefs)
+            {
+                chief.Update(command);
+            }
         }
         #endregion
         #region instantiation

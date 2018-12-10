@@ -10,6 +10,7 @@ namespace MasterChefCuisine.Model
     public class Cook : Preparator
     {
         bool isBusy = false;
+        TempStorage tempStorage = TempStorage.getInstance();
         public Cook()
         {
             ThreadPool.SetMaxThreads(1,5);
@@ -38,7 +39,7 @@ namespace MasterChefCuisine.Model
         }
         public Command restingLoop(Command command)
         {
-            TempStorage.comStore.Add(command);
+            tempStorage.comStore.Add(command);
             Thread.Sleep(command.recipe.tpsRest * 1000);
             return command;
         }

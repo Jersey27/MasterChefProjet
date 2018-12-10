@@ -13,7 +13,6 @@ namespace MasterChefCuisine.Model
         public List<Plunger> plungers;
         public List<DishWasher> dishWashers;
         public List<WashingMachine> washingMachines;
-        public List<KitchenObserver> observers;
         public List<Sink> sinks;
 
         private static Kitchen instance = new Kitchen();
