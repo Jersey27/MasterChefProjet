@@ -13,12 +13,12 @@ namespace MasterChefCuisine.Model
 
         public List<String> selectFromDB()
         {
-
+            return null;
         }
 
         public List<String> insertIntoDB()
         {
-
+            return null;
         }
     }
 }

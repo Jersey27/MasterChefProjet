@@ -25,16 +25,15 @@ namespace MasterChefCuisine.Model
                 socket.Bind(new IPEndPoint(ip, 23456));
                 socket.Listen(1);
                 Socket client = socket.Accept();
-                Thread writer = new Thread()
+                //Thread writer = new Thread();
             }
         }
         #region commande du socket
 
         public void sendMenu()
         {
-            socket.
+            //socket.
         }
-        public void 
         #endregion
         #region command simulant le socket (test only)
         public void testNewCommand()
