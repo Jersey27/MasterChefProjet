@@ -31,17 +31,17 @@ namespace MasterChefResto.model
                 tableList.Add(new Table(increment, 4));
                 increment = increment++;
             }
-            while(increment < nbrTableFour + 15)
+            while(increment < nbrTableSix + 15)
             {
                 tableList.Add(new Table(increment, 6));
                 increment = increment++;
             }
-            while (increment < nbrTableFour + 20)
+            while (increment < nbrTableEight + 20)
             {
                 tableList.Add(new Table(increment, 8));
                 increment = increment++;
             }
-            while (increment < nbrTableFour + 22)
+            while (increment < nbrTableTen + 22)
             {
                 tableList.Add(new Table(increment, 10));
                 increment = increment++;

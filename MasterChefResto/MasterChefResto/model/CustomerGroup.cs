@@ -17,7 +17,7 @@ namespace MasterChefResto.model
         {
             this.GroupNumber = ID;
             Random random = new Random();
-            this.NbrCustomerInGroup = random.Next(2, 10);
+            this.NbrCustomerInGroup = random.Next(1, 10);
             int increment = 0;
             while(increment < this.NbrCustomerInGroup)
             {
