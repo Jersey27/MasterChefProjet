@@ -26,6 +26,18 @@ namespace MasterChefCuisine.Model
             }
         }
 
+        public void closeSQLConnection()
+        {
+            try
+            {
+                connection.Close();
+            } catch(Exception e)
+            {
+
+            }
+            
+        }
+
         public static SQLConnector getInstance(bool isTest)
         { 
             if (instance != null)

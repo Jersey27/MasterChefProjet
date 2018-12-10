@@ -1,5 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,17 +10,28 @@ namespace MasterChefCuisine.Model
 {
     public abstract class SQLQuery
     {
-        SQLQuery query;
-            
+        SqlCommand query;
 
-        public List<String> selectFromDB()
+        public ArrayList selectFromDB(string selection, string table, string condition, SqlConnection connection)
         {
-            return null;
+            string cmd = string.Format("SELECT {0} FROM {1} WHERE {2}", selection, table, condition);
+            query = new SqlCommand(cmd , connection);
+            SqlDataReader reader = query.ExecuteReader();
+            ArrayList result = new ArrayList();
+
+            while (reader.Read())
+            {
+                Object[] row = new Object[reader.FieldCount];
+                reader.GetValues(row);
+                result.Add(row);
+            }
+
+            return result;
         }
 
-        public List<String> insertIntoDB()
+        public void insertIntoDB()
         {
-            return null;
+            
         }
     }
 }
