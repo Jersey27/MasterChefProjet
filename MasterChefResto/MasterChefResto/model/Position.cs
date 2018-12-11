@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    public class Position
+    public abstract class Position
     {
         public int PosX { get; set; }
         public int PosY { get; set; }

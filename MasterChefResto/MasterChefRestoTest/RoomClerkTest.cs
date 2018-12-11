@@ -10,22 +10,16 @@ namespace MasterChefRestoTest
         RoomClerk roomClerk;
 
         [TestMethod]
-        public void CheckTableTest()
+        public void DistributeTest()
         {
-            Assert.Fail();
+            Table table = new Table(0, 4);
+            table.Bread = false;
+            table.Water = false;
+            RoomClerk.Distribute(table);
+            Assert.AreEqual(true, table.Bread);
+            Assert.AreEqual(true, table.Water);
         }
 
-        [TestMethod]
-        public void DistributeWaterTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod]
-        public void DistributeBreadTest()
-        {
-            Assert.Fail();
-        }
 
         [TestMethod]
         public void getInstanceTest()

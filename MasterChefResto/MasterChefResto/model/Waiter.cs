@@ -12,20 +12,35 @@ namespace MasterChefResto.model
 
         public void CheckTableState()
         {
-
-            //check the state of a table, if it is dirty without customer it must be cleaned
-            //put an eventlistener, which activate when the state of a table change to "dirty" and has no cutomers
+            Boolean cleaned = false;
+            foreach (Table table in Room.tableList)
+            {
+                if (table.State_Diner == "Dirty")
+                {
+                    //se déplace à la position de la table table.tableId
+                    SetTable(table);
+                    cleaned = true;
+                }
+                if(cleaned)
+                {
+                    //retourne à sa position d'observation
+                    cleaned = false;
+                }
+            }
+            
         }
 
-        public void SetTable()
+        public static void SetTable(Table table)
         {
-
+            table.State_Diner = "Clean";
         }
 
         public void ServeCustomer()
         {
+            //check si une commande est complete
 
         }
+
         public void MoveToTheRight()
         {
             this.position.PosX = this.position.PosX + 1;
