@@ -9,7 +9,7 @@ namespace MasterChefCuisineTest.Model
     public class ReadyCounterTests
     {
         [TestMethod]
-        public void SendPlateTest(Recipe recipe)
+        public void SendPlateTest()
         {
             List<Ingredient> ingredients = new List<Ingredient>();
             ingredients.Add(new Ingredient { NomIngredient = "tomate", quantityIngredient = 4, typeIngredient = "Frais" });

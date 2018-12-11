@@ -15,7 +15,7 @@ namespace MasterChefCuisine.Model
 
         private SQLConnector(bool isTest)
         {
-            connection = new SqlConnection("server=PC-BRYAN;" + "user id=projet-resto;" + "password=azerty123;" + "database=masterchef" + "Trusted_Connection=yes;" +  "connection timeout=30");
+            connection = new SqlConnection("server=10.176.50.33;" + "user id=projet-resto;" + "password=azerty123;" + "database=masterchef;" +  "connection timeout=30");
 
             try
             {

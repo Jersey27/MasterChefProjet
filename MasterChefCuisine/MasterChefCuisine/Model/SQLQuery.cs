@@ -48,11 +48,9 @@ namespace MasterChefCuisine.Model
 
             recipeDB = selectFromDB("*", "Recettes", condition, connection);
 
-            int recipeId = new Int32();
-
             foreach (object[] i in recipeDB)
             {
-                recipeId = (int)i[0];
+                recipe.IdRecipe = (int)i[0];
             }
 
             foreach (object[] i in recipeDB)
@@ -80,7 +78,7 @@ namespace MasterChefCuisine.Model
                 recipe.nombre_parts = (int)i[5];
             }
 
-            condition = string.Format("id_recette = {0}", recipeId);
+            condition = string.Format("id_recette = {0}", recipe.IdRecipe);
             ings = selectFromDB("id_ingredient, quantite_ingredient_recette", "Composition_ingredient", condition, connection);
 
             foreach (object[] i in ings)

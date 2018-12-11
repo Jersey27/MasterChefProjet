@@ -13,7 +13,7 @@ namespace MasterChefCuisineTest.Model
     public class ChiefTests
     {
         Chief chief = Chief.getInstance(true);
-        Cook cook = new PartChief(true);
+        PartChief partChief = new PartChief(true);
         [TestMethod]
         public void AssignPlateTest()
         {
