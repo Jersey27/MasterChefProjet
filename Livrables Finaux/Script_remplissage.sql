@@ -1,9 +1,103 @@
 use masterchef;
-insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Tomate', 'Longue conserv', NULL, TRUE);
-insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Pâte à pizza', 'Frais', '08/12/2018', FALSE);
-insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Mozarella', 'Frais', '08/12/2018', FALSE);
-insert into Ingredients (nom_ingredient, type_ingredient, date_peremption_ingredient) values ('Piment d''espelette', 'Longue conserv', NULL, TRUE);
-insert into Recettes (nom_recette, temps_cuisson_recette, temps_preparation_recette) values ('Pizza', 10, 20, 8);
+
+-- Remplissage table Recettes --
+
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Feuilleté au crabe', 20, 0, 10, 4, 'Entrée');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Oeufs cocotte', 5, 0, 10, 4, 'Entrée');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Gaspatcho', 0, 0, 0, 4, 'Entrée');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Pâté de sanglier', 15, 20, 20, 20, 'Entrée');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Tarte au thon', 20, 0, 10, 6, 'Entrée');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Quiche Loraine', 35, 0, 15, 10, 'Entrée');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Foie Gras', 0, 0, 10, 'Entrée');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Soupe chinoise', 30, 0, 15, 4, 'Entrée');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Les Cagouilles à la Charentaise', 20, 0, 30, 4, 'Entrée');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Macédoine', 0, 0, 20, 8, 'Entrée');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Bouillinade d''anguilles ou de poisson', 20, 0, 10, 4, 'Plat');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Boles de picoulats', 0, 0, 60, 25, 'Plat');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Blanquette de veau', 20, 0, 10, 5, 'Plat');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Patte de porc', 60, 0, 30, 3, 'Plat');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Blanc de poulet crème et miel', 10, 0, 5, 2, 'Plat');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Escargots à la Catalane', 60, 0, 15, 4, 'Plat');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Chorba', 35, 0, 15, 4, 'Plat');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Tagliatelles', 10, 0, 20, 4, 'Plat');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Pâtes carbonara', 15, 0, 5, 'Plat');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Lasagnes', 60, 0, 30, 10, 'Plat');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Gaufres', 10, 10, 20, 20, 'Dessert');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Crêpes', 4, 60, 10, 30, 'Dessert');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Tiramisu', 0, 60, 10, 4 'Dessert');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Madeleines au miel', 5, 0, 15, 5, 'Dessert');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Flan', 30, 60, 10, 8, 'Dessert');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Île Flotante', 0, 10, 40, 4, 'Dessert');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Tarte au citron meringuée', 40, 10, 20, 8, 'Dessert');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Opéra', 0, 60, 180, 4, 'Dessert');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Royal', 0, 180, 90, 12, 'Dessert');
+INSERT INTO Recettes (nom_recette, temps_cuisson_recette, temps_repos_recette, temps_preparation_recette, nombre_parts, type_recette) VALUES ('Clafouti à la rubarbe', 60, 60, 30, 8, 'Dessert');
+
+
+-- Remplissage table Ingrédients --
+
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (1, 'Pâte feuilletée', 'Frais', 20, '14/12/2018', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (2, 'Oeufs', 'Frais', 200, '14/12/2018', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (3, 'Crème fraiche', 'Frais', 50, '14/12/2018', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (4, 'Oignons', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (5, 'Echalottes', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (6, 'Crabe', 'Surgelé', 20, '14/03/2019', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (7, 'Citron', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (8, 'Persil', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (9, 'Piment', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (10, 'Gruyère rapé', 'Frais', 100, '14/12/2018', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (11, 'Lotte', 'Surgelé', 50, '14/03/2019', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (12, 'Congre', 'Surgelé', 50, '14/03/2019', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (13, 'Rouget grondin', 'Surgelé', 50, '14/03/2019', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (14, 'Seiche', 'Surgelé', 50, '14/03/2019', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (15, 'Ail', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (16', Pomme de terre', 'Longue conserv', 500, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (17, 'Chair à saucisse', 'Frais', 100, '14/12/2018', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (18, 'Boeuf', 'Frais', 100, '14/12/2018', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (19, 'Tomate', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (20, 'Farine', 'Longue conserv', 200, '0', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (21, 'Vinaigre', 'Longue conserv', 50, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (22, 'Huile de tournesol', 'Longue conserv', 50, '0', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (23, 'Veau', 'Frais', 50, '14/12/2018', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (24, 'Poulet', 'Frais', 50, '14/12/2018', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (25, 'Carottes', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (26, 'Vin Blanc', 'Longue conserv', 50, '0', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (27, 'Champignons', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (28, 'Concombre', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (29, 'Huile d''olive', 'Longue conserv', 50, '0', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (30, 'Poivron', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (31, 'Beurre', 'Frais', 50, '14/12/2018', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (32, 'Lait', 'Longue conserv', 200, '0', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (33, 'Sanglier', 'Frais', 50, '14/12/2018', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (34, 'Porc', 'Frais', 50, '14/12/2018', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (35, 'Lardons fumés', 'Frais', 50, '14/12/2018', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (36, 'Thon', 'Frais', 50, '14/12/2018', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (37, 'Thym', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (38, 'Miel', 'Longue conserv', 50, '0', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (39, 'Céleri', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (40, 'Laurier', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (41, 'Amandes', 'Longue conserv', 2000, '0', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (42, 'Persil', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (43, 'Poireaux', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (44, 'Crevettes', 'Frais', 50, '14/12/2018', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (45, 'Coriandre', 'Longue conserv', 200, '0', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (46, 'Muscat', 'Longue conserv', 100, '0', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (47, 'Mouton', 'Frais', 50, '14/12/2018', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (48, 'Foie Gras', 'Frais', 50, '14/12/2018', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (49, 'Sucre vanillé', 'Longue conserv', 200, '0', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (50, 'Fenouil sauvage', 'Longue conserv', 200, '0', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (51, 'Biscuits', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (52, 'Mascarpone', 'Frais', 200, '14/12/2018', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (53, 'Cacao', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (54, 'Café', 'Longue conserv', 600, '0', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (55, 'Levure', 'Longue conserv', 100, '0', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (56, 'Saumon fumé', 'Frais', 50, '14/12/2018', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (57, 'Moutarde', 'Frais', 5000, '14/12/2019', 0);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (58, 'Ciboulette', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (59, 'Gingembre', 'Longue conserv', 200, '0', 1);
+INSERT INTO Ingredients (id_ingredient, nom_ingredient, type_ingredient, quantite_ingredient, date_peremption_ingredient, ingredient_preparable) VALUES (60, 'Soja', 'Longue conserv', 200, '0', 1);
+
+
 insert into Composition_Recette (id_recette, id_ingredient, quantite_ingredient_recette) values (1, 2, 1);
 insert into Composition_Recette (id_recette, id_ingredient, quantite_ingredient_recette) values (1, 1, 5);
 insert into Composition_Recette (id_recette, id_ingredient, quantite_ingredient_recette) values (1, 3, 2);
