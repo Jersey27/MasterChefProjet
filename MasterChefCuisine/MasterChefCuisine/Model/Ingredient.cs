@@ -15,7 +15,7 @@ namespace MasterChefCuisine.Model
         public string NomIngredient { get; set; }
         public string typeIngredient { get; set; }
         public int quantityIngredient { get; set; }
-        public bool canBePrepare { get; set; }
+        public bool canBePrepared { get; set; }
         public DateTime datePeremption { get; set; }
 
         public void Dispose()
