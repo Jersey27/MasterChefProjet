@@ -9,7 +9,7 @@ namespace MasterChefCuisine.Model
     public class Recipe
     {
         public int IdRecipe { get; set; }
-        public string NomRecipe { get; set; }
+        public string NameRecipe { get; set; }
         public string typeRecipe { get; set; }
         public List<Ingredient> Ingredients { get; set; }
         public int nombre_parts { get; set; }
@@ -17,6 +17,7 @@ namespace MasterChefCuisine.Model
         public int tpsCook { get; set; }
         public int tpsRest { get; set; }
         public bool available { get; set; }
+
         public void prendrePart()
         {
             nombre_parts--;

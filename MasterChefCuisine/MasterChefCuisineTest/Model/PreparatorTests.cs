@@ -12,7 +12,7 @@ namespace MasterChefCuisineTest.Model
         [TestMethod]
         public void preparerLegumesTest()
         {
-            Ingredient ingredient = new Ingredient { NomIngredient = "carotte", quantityIngredient = 1, typeIngredient = "frais", canBePrepare = true };
+            Ingredient ingredient = new Ingredient { NomIngredient = "carotte", quantityIngredient = 1, typeIngredient = "frais", canBePrepared = true };
             Cook cook = new Cook();
             cook.prepareLegume(ingredient);
             Ingredient newIngredient = tempStorage.ingStore.Find(x => x.NomIngredient.ToString() == "carotte préparé");

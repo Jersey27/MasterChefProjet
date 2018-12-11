@@ -23,7 +23,7 @@ namespace MasterChefCuisine.Model
                 else
                 {
                     string newName = ingredient.NomIngredient.ToString() + " préparé";
-                    Ingredient IngPrep = new Ingredient { NomIngredient = newName, quantityIngredient = 1, typeIngredient = "frais", canBePrepare = false };
+                    Ingredient IngPrep = new Ingredient { NomIngredient = newName, quantityIngredient = 1, typeIngredient = "frais", canBePrepared = false };
                     tempStorage.ingStore.Add(IngPrep);
                 }
                 ingredient.quantityIngredient--;
