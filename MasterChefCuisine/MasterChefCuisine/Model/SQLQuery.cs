@@ -34,6 +34,7 @@ namespace MasterChefCuisine.Model
         {
             string cmd = string.Format("UPDATE {0} SET {1} = {2} WHERE {3};", table, column, value, condition);
             query = new SqlCommand(cmd, connection);
+            query.ExecuteNonQuery();
         }
 
         public Recipe getRecipe(string recipeName, SqlConnection connection)
