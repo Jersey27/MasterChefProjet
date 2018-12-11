@@ -5,6 +5,8 @@ using System.Text;
 using System.Net.Sockets;
 using System.Threading;
 using System.Net;
+using System.Collections;
+using Newtonsoft.Json;
 
 namespace MasterChefCuisine.Model
 {
@@ -21,16 +23,69 @@ namespace MasterChefCuisine.Model
         {
             if(!isTest)
             {
+                ArrayList acceptList = new ArrayList();
                 socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 socket.Bind(new IPEndPoint(ip, 23456));
                 socket.Listen(1);
-                Socket client = socket.Accept();
-                //Thread writer = new Thread();
+                while (true) { 
+                    Socket client = socket.Accept();
+                    MyThread newThread = new MyThread(client);
+                    Thread _connec = new Thread(new ThreadStart(newThread.Connection));
+                   
+                    acceptList.Add(client);
+                    _connec.Start();
+                        //Thread writer = new Thread();
+                }
+            }
+
+        }
+
+        #region commande du socket
+        public class MyThread
+        {
+            Socket client;
+            SocketManagement management;
+
+
+            public MyThread(Socket newclient)
+            {
+                client = newclient;
+                management = SocketManagement.getInstance(false);
+            }
+
+            public void Connection()
+            {
+                bool listener = true;
+                bool writer = true;
+                while (listener)
+                {
+                    byte[] data = new byte[1024];
+                    client.Receive(data);
+
+                    string message = System.Text.Encoding.UTF8.GetString(data);
+                    Command newCommand = JsonConvert.DeserializeObject<Command>(message);
+                    management.UpdateChiefObserver(newCommand);
+                    if (message == "exit")
+                    {
+
+                        message = "L'utilisateur s'est déconnecté.";
+                        listener = false;
+
+                    }
+                    Console.WriteLine("Message: {0} {1}", message, listener);
+                    Thread.Sleep(1000);
+                }
+                while (writer)
+                {
+                    
+
+                }
+
+                // client.Shutdown(SocketShutdown.Receive);
+                // client.Close();
             }
         }
-        #region commande du socket
-
-        public void sendMenu()
+            public void sendMenu()
         {
             //socket.
         }
@@ -64,5 +119,6 @@ namespace MasterChefCuisine.Model
             return new SocketManagement(isTest);
         }
     }
+
 }
 #endregion
