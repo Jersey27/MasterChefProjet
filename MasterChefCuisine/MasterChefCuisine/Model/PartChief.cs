@@ -27,17 +27,7 @@ namespace MasterChefCuisine.Model
             }
             else
             {
-                bool taskSended = false;
-                while(!taskSended)
-                {
-                    foreach(Clerk clerk in clerks)
-                    {
-                        if (!clerk.isBusy)
-                        {
-                            clerk.reveiceTask();
-                        }
-                    }
-                }
+
             }
         }
 

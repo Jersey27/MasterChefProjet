@@ -49,8 +49,8 @@
   <ItemGroup>
     <Compile Include="Controler\KitchenControler.cs" />
     <Compile Include="Model\Chief.cs" />
+    <Compile Include="Model\Clerk.cs" />
     <Compile Include="Model\Command.cs" />
-    <Compile Include="Model\Cook.cs" />
     <Compile Include="Model\DirtyDisheCounter.cs" />
     <Compile Include="Model\DishWasher.cs" />
     <Compile Include="Model\Employee.cs" />
@@ -59,6 +59,7 @@
     <Compile Include="Model\Kitchen.cs" />
     <Compile Include="Model\IMachine.cs" />
     <Compile Include="Model\ObserverChief.cs" />
+    <Compile Include="Model\PartChief.cs" />
     <Compile Include="Model\Plunger.cs" />
     <Compile Include="Model\Position.cs" />
     <Compile Include="Model\Preparator.cs" />

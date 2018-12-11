@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    class Clerk : Preparator
+    public class Clerk : Preparator
     {
         public Clerk()
         {

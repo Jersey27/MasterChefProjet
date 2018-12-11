@@ -9,7 +9,8 @@ namespace MasterChefCuisine.Model
     public class Kitchen
     {
         public Chief chief;
-        public List<Cook> cooks;
+        public List<PartChief> cooks;
+        public List<Clerk> clerks;
         public List<Plunger> plungers;
         public List<DishWasher> dishWashers;
         public List<WashingMachine> washingMachines;

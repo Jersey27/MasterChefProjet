@@ -9,7 +9,7 @@ namespace MasterChefCuisineTest.Model
     [TestClass]
     public class CookTests
     {
-        Cook cook = new Cook();
+        PartChief cook = new PartChief(true);
         Command commandTest;
 
         [TestMethod]
