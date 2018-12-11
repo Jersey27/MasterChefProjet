@@ -19,18 +19,36 @@ namespace MasterChefResto.model
 
         private void MasterHotelLoop()
         {
-            /*throw new NotImplementedException();*/
-        }
+            while (Thread.CurrentThread.IsAlive)
+            {
 
-        public void SearchTable(int groupCustomerId)
-        {
+                //recherche des groupes de clients non-assignés à une table
+                foreach (CustomerGroup customGroup in Room.customerGroupList)
+                {
+                    //si un groupe a toujours la valeur par défaut signalant qu'il n'est pas assigné à une table
+                    if (customGroup.TableAssigned == -1)
+                    {
+                        //assigne une table avec un nombre de place adapté (nombre de place supérieur ou égal au nombre de clients dans le groupe)
+                        foreach (Table tables in Room.tableList)
+                        {
+                            //si l'une des tables dans la liste de la Salle correspond à la demande
+                            if (customGroup.NbrCustomerInGroup <= tables.NumberOfPlace)
+                            {
+                                //assigner la table au Groupe de client
+                                customGroup.TableAssigned = tables.tableId;
+                            }
+                        }
+                    }
+                }
+                foreach (CustomerGroup customGroup in Room.customerGroupList)
+                {
+                    if(customGroup.Finished)
+                    {
+                        //se fait payer et renvoie les clients
+                    }
+                }
 
-            //si une table est reconnue comme libre et possède un nombre suffisant de place (choix de la plus petite correspondant à cette dernière contrainte).
-        }
-
-        public void AttributeTable()
-        {
-            //Donne une valeur particulière au client pour le diriger vers la table choisie
+            }
         }
 
         public static MasterHotel getInstance()

@@ -10,18 +10,6 @@ namespace MasterChefRestoTest
         MasterHotel masterHotel;
 
         [TestMethod]
-        public void SearchTableTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod]
-        public void AttributeTableTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod]
         public void getInstanceTest()
         {
             masterHotel = MasterHotel.getInstance();

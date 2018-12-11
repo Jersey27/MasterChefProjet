@@ -11,8 +11,8 @@ namespace MasterChefResto.model
         public int tableId;
         public bool Bread { get; set; }
         public bool Water { get; set; }
-        private int NumberOfPlace { get; set; }
-        private String State_Diner { get; set; }
+        public int NumberOfPlace { get; set; }
+        public String State_Diner { get; set; }
 
         public Table(int ID, int numberSeat)
         {

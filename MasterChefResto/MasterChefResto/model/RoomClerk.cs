@@ -10,24 +10,31 @@ namespace MasterChefResto.model
     {
         static RoomClerk instance = new RoomClerk();
 
-        private RoomClerk()
+        public RoomClerk()
         {
 
         }
 
         public void CheckStateTable()
         {
+            Boolean served = false;
             foreach(Table table in Room.tableList)
             {
                 if(!table.Bread || !table.Water)
                 {
                     //se déplace à la position de la table table.tableId
                     Distribute(table);
+                    served = true;
+                }
+                if(served)
+                {
+                    //retourne à sa position d'observation
+                    served = false;
                 }
             }
         }
 
-        public void Distribute(Table table)
+        public static void Distribute(Table table)
         {
             table.Bread = true;
             table.Water = true;

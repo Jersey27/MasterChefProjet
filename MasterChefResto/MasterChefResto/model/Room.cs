@@ -62,6 +62,16 @@ namespace MasterChefResto.model
             customerGroupList[nbrOfGroupCreated].GroupNumber = nbrOfGroupCreated;
         }
 
+        public static int CountNumberOfCustomer()
+        {
+            int nbrOfClient = 0;
+            foreach(CustomerGroup customGroup in Room.customerGroupList)
+            {
+                nbrOfClient = nbrOfClient + customGroup.NbrCustomerInGroup;
+            }
+            return nbrOfClient + 1;
+        }
+
         public static Room getInstance()
         {
             return instance;

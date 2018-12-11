@@ -10,18 +10,23 @@ namespace MasterChefRestoTest
         [TestMethod]
         public void CheckTableStateTest()
         {
+            //tester les mouvements
             Assert.Fail();
         }
 
         [TestMethod]
         public void SetTableTest()
         {
-            Assert.Fail();
+            Table table = new Table(0, 4);
+            table.State_Diner = "Dirty";
+            Waiter.SetTable(table);
+            Assert.AreEqual("Clean", table.State_Diner);
         }
 
         [TestMethod]
         public void ServeCustomerTest()
         {
+            //tester le service
             Assert.Fail();
         }
     }
