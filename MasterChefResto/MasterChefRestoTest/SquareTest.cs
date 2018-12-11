@@ -10,6 +10,7 @@ namespace MasterChefRestoTest
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }

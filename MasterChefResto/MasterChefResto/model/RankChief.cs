@@ -10,11 +10,13 @@ namespace MasterChefResto.model
     {
         public static List<Table> tableOfThisRankChief;
         public bool Busy { get; set; }
-        public List<String> menu = new List<String>();
+        public static List<String> menu;
 
         public RankChief()
         {
+            menu = new List<String>();
             tableOfThisRankChief = new List<Table>();
         }
+
     }
 }

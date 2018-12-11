@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    public class Staff
+    public abstract class Staff
     {
         public Position position { get; set; }
 
-        public String CheckIfServiceEnded()
+        public static String CheckIfServiceEnded()
         {
             if(TimeInRoom.Hour >= 24)
             {

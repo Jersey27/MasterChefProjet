@@ -11,6 +11,7 @@ namespace MasterChefResto.model
     {
         static Room instance = new Room();
         public static List<Table> tableList;
+        public static List<Square> squareList;
         public static List<Staff> staffList;
         public static List<CustomerGroup> customerGroupList = new List<CustomerGroup>();
         int nbrTableTwo = 10;
@@ -22,32 +23,43 @@ namespace MasterChefResto.model
 
         private Room()
         {
+            squareList = new List<Square>();
             tableList = new List<Table>();
             staffList = new List<Staff>();
             increment = 0;
+            squareList.Add(new Square(1, new RankChief()));
             while(increment < nbrTableTwo)
             {
                 tableList.Add(new Table(increment, 2));
+                squareList[0].IdTablesList.Add(increment);
                 increment = increment + 1;
             }
-            while(increment < nbrTableFour + 10)
+            squareList.Add(new Square(2, new RankChief()));
+            while (increment < nbrTableFour + 10)
             {
                 tableList.Add(new Table(increment, 4));
+                squareList[1].IdTablesList.Add(increment);
                 increment = increment + 1;
             }
-            while(increment < nbrTableSix + 20)
+            squareList.Add(new Square(3, new RankChief()));
+            while (increment < nbrTableSix + 20)
             {
                 tableList.Add(new Table(increment, 6));
+                squareList[2].IdTablesList.Add(increment);
                 increment = increment + 1;
             }
+            squareList.Add(new Square(4, new RankChief()));
             while (increment < nbrTableEight + 25)
             {
                 tableList.Add(new Table(increment, 8));
+                squareList[3].IdTablesList.Add(increment);
                 increment = increment + 1;
             }
+            squareList.Add(new Square(5, new RankChief()));
             while (increment < nbrTableTen + 30)
             {
                 tableList.Add(new Table(increment, 10));
+                squareList[4].IdTablesList.Add(increment);
                 increment = increment + 1;
             }
             increment = 0;

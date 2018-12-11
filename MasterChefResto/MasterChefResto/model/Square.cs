@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    class Square
+    public class Square
     {
-        private int SquareNum { get; set; }
+        public int SquareNum { get; set; }
+        public List<int> IdTablesList;
+        public RankChief RankChiefOfTheSquare;
+
+        public Square(int NumForSquare, RankChief rankchief)
+        {
+            IdTablesList = new List<int>();
+            this.SquareNum = NumForSquare;
+            this.RankChiefOfTheSquare = rankchief;
+        }
     }
 }
