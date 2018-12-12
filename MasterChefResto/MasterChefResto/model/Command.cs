@@ -13,4 +13,6 @@ namespace MasterChefResto.model
         private string MainCourse { get; set; }
         private string Dessert { get; set; }
     }
+
+    
 }
