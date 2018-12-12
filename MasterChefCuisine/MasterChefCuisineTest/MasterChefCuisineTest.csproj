@@ -56,7 +56,6 @@
     <Compile Include="Controler\KitchenControlerTests.cs" />
     <Compile Include="Model\ChiefTests.cs" />
     <Compile Include="Model\ClerkTest.cs" />
-    <Compile Include="Model\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\PartChiefTests.cs" />
     <Compile Include="Model\DirtyDisheCounterTests.cs" />
