@@ -9,7 +9,9 @@ namespace MasterChefCuisineTest.Model
     [TestClass]
     public class SQLQueryTests
     {
-     
+        SQLQuery query;
+        SQLConnector connector = SQLConnector.getInstance(false);
+
         [TestMethod]
         public void selectFromDB()
         {
@@ -203,6 +205,12 @@ namespace MasterChefCuisineTest.Model
             Assert.AreEqual(25, ingredient.quantityIngredient);
             Assert.AreEqual(Convert.ToDateTime("11/12/2018 00:00:00"), ingredient.datePeremption);
             Assert.AreEqual(Convert.ToBoolean(1), ingredient.canBePrepared);
+        }
+
+        [TestMethod]
+        public void TakeIngredient()
+        {
+            
         }
     }
 

@@ -11,7 +11,7 @@ namespace MasterChefCuisine.Model
     public class SQLConnector
     {
         static SQLConnector instance;
-        SqlConnection connection;
+        public SqlConnection connection { get; set; }
 
         private SQLConnector(bool isTest)
         {

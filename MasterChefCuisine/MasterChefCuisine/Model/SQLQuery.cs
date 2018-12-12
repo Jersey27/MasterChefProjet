@@ -16,7 +16,8 @@ namespace MasterChefCuisine.Model
         /// La commande SQL
         /// </summary>
         SqlCommand query;
-        
+        SQLConnector connector = SQLConnector.getInstance(false);
+
         /// <summary>
         /// Effectue une requête de selection SQL SERVER
         /// </summary>
@@ -56,15 +57,15 @@ namespace MasterChefCuisine.Model
             query = new SqlCommand(cmd, connection);
             query.ExecuteNonQuery();
         }
-        
+
         /// <summary>
         /// récupère la recette selon son nom
         /// </summary>
         /// <param name="recipeName">Le nom de la recette à récupérer</param>
-        /// <param name="connection">La connection à la base de donnée</param>
         /// <returns>La recette demandée</returns>
-        public Recipe getRecipe(string recipeName, SqlConnection connection)
+        public Recipe getRecipe(string recipeName)
         {
+            SqlConnection connection = query.Connection;
             ArrayList recipeDB = new ArrayList();
             ArrayList ings = new ArrayList();
             Ingredient ingred = new Ingredient();
@@ -110,7 +111,7 @@ namespace MasterChefCuisine.Model
 
             foreach (object[] i in ings)
             {
-                ingred = getIngredient((int)i[0], connection);
+                ingred = getIngredient((int)i[0]);
                 ingredients.Add(ingred);
             }
 
@@ -125,8 +126,10 @@ namespace MasterChefCuisine.Model
         /// <param name="name">Le nom de l'ingrédient à récupérer</param>
         /// <param name="connection"></param>
         /// <returns>L'ingrédient recetteé</returns>
-        public Ingredient getIngredient(string name, SqlConnection connection)
+        public Ingredient getIngredient(string name)
         {
+            SqlConnection connection = query.Connection;
+
             Ingredient ingredient = new Ingredient();
 
             ArrayList ing = new ArrayList();
@@ -163,8 +166,11 @@ namespace MasterChefCuisine.Model
             return ingredient;
         }
 
-        public Ingredient getIngredient(int id, SqlConnection connection)
+        public Ingredient getIngredient(int id)
         {
+
+            SqlConnection connection = query.Connection;
+
             Ingredient ingredient = new Ingredient();
 
             ArrayList ing = new ArrayList();
@@ -199,6 +205,12 @@ namespace MasterChefCuisine.Model
             }
 
             return ingredient;
+        }
+        public void TakeIngredient(Ingredient ingredient)
+        {
+            SqlConnection connection = query.Connection;
+            Ingredient ingredient1 = getIngredient(ingredient.NomIngredient);
+            updateDB("Ingredient", "nbIngredient", (ingredient1.quantityIngredient - ingredient.quantityIngredient).ToString(), "NomIngredient=" + ingredient1.NomIngredient, connection);
         }
     }
 }
