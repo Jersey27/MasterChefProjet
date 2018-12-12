@@ -60,6 +60,7 @@
     <Compile Include="model\Customer.cs" />
     <Compile Include="model\CustomerGroup.cs" />
     <Compile Include="model\MasterHotel.cs" />
+    <Compile Include="model\ObserverWaiter.cs" />
     <Compile Include="model\Position.cs" />
     <Compile Include="model\RankChief.cs" />
     <Compile Include="model\Room.cs" />
