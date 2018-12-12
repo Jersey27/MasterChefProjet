@@ -8,11 +8,11 @@ namespace MasterChefResto.model
 {
     public class Customer
     {
-        private int IdCustomer { get; set; }
-        private bool Served { get; set; }
-        private int TimeEatStarter { get; set; }
-        private int TimeEatMainCourse { get; set; }
-        private int TimeEatDessert { get; set; }
+        public int IdCustomer { get; set; }
+        public bool Served { get; set; }
+        public int TimeEatStarter { get; set; }
+        public int TimeEatMainCourse { get; set; }
+        public int TimeEatDessert { get; set; }
 
         public Customer(int Id, int start, int main, int dessert)
         {
@@ -20,6 +20,13 @@ namespace MasterChefResto.model
             this.TimeEatStarter = start;
             this.TimeEatMainCourse = main;
             this.TimeEatDessert = dessert;
+        }
+
+        public int choseInMenu(int firstEntry, int lastEntry)
+        {
+            Random random = new Random();
+            int choice = random.Next(firstEntry, lastEntry);
+            return choice;
         }
     }
 }

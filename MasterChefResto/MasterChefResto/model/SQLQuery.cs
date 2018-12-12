@@ -5,15 +5,17 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MasterChefResto.Model;
 
 namespace MasterChefResto.model
 {
-    class SQLQuery
+    public abstract class SQLQuery
     {
         /// <summary>
         /// La commande SQL
         /// </summary>
-        SqlCommand query;
+        static SqlCommand query;
+        static SQLConnector connector = SQLConnector.getInstance(false);
 
         /// <summary>
         /// Effectue une requête de selection SQL SERVER
@@ -23,10 +25,10 @@ namespace MasterChefResto.model
         /// <param name="condition">Les conditions spécique de récupération</param>
         /// <param name="connection">La connection à la base de données</param>
         /// <returns>Le résultat de la requête</returns>
-        public ArrayList selectFromDB(string selection, string table, string condition, SqlConnection connection)
+        public static ArrayList selectFromDB(string selection, string table, string condition)
         {
             string cmd = string.Format("SELECT {0} FROM {1} WHERE {2};", selection, table, condition);
-            query = new SqlCommand(cmd, connection);
+            query = new SqlCommand(cmd, connector.connection);
             SqlDataReader reader = query.ExecuteReader();
             ArrayList result = new ArrayList();
 
@@ -36,7 +38,7 @@ namespace MasterChefResto.model
                 reader.GetValues(row);
                 result.Add(row);
             }
-
+            reader.Close();
             return result;
         }
 
@@ -47,14 +49,14 @@ namespace MasterChefResto.model
         /// <param name="typeRecipe">Le type de recette à récupérer</param>
         /// <param name="connection">La connection à la base de donnée</param>
         /// <returns>La recette demandée</returns>
-        public List<String> getRecipe(string typeRecipe, SqlConnection connection)
+        public static List<String> getRecipe(string typeRecipe)
         {
             ArrayList recipeDB = new ArrayList();
             List<string> recipes = new List<string>();
 
-            string condition = string.Format("type_recette = {0}", typeRecipe);
+            string condition = string.Format("type_recette = '{0}'", typeRecipe);
 
-            recipeDB = selectFromDB("nom_recette", "Recettes", condition, connection);
+            recipeDB = selectFromDB("nom_recette", "Recettes", condition);
 
             foreach (object[] i in recipeDB)
             {
@@ -65,3 +67,5 @@ namespace MasterChefResto.model
         }
     }
 }
+
+

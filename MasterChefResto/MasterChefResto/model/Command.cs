@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    class Command
+    public class Command
     {
-        public int CustomerIdForCommand { get; set; }
-        private string Starter { get; set; }
-        private string MainCourse { get; set; }
-        private string Dessert { get; set; }
-    }
+        public List<Customer> customer;
+        public List<String> Starter;
+        public List<String> MainCourse;
+        public List<String> Dessert;
 
-    
+        public Command()
+        {
+            customer = new List<Customer>();
+            Starter = new List<String>();
+            MainCourse = new List<String>();
+            Dessert = new List<String>();
+        }
+    }
 }

@@ -15,7 +15,7 @@ namespace MasterChefResto.model
         private SocketManagement()
         {
             bool next = true;
-            IPAddress ip = IPAddress.Parse("");
+            IPAddress ip = IPAddress.Parse("10.176.50.33");
             int port = 12345;
             IPEndPoint ipEnd = new IPEndPoint(ip, port);
             Socket client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -27,10 +27,6 @@ namespace MasterChefResto.model
             catch (SocketException E)
             {
                 Console.WriteLine("Connection" + E.Message);
-            }
-            while (next)
-            {
-
             }
 
         }

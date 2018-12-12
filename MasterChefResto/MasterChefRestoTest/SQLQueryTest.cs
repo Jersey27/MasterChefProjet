@@ -49,7 +49,7 @@ namespace MasterChefRestoTest
 
             foreach (object[] i in result)
             {
-                Assert.AreEqual(150, (byte)i[4]);
+                Assert.AreEqual(150, (int)i[4]);
             }
         }
 

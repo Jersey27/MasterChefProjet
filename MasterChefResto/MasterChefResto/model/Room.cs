@@ -13,6 +13,7 @@ namespace MasterChefResto.model
         public static List<Table> tableList;
         public static List<Square> squareList;
         public static List<Staff> staffList;
+        public static List<Command> commandList;
         public static List<CustomerGroup> customerGroupList = new List<CustomerGroup>();
         int nbrTableTwo = 10;
         int nbrTableFour = 10;
@@ -26,9 +27,10 @@ namespace MasterChefResto.model
             squareList = new List<Square>();
             tableList = new List<Table>();
             staffList = new List<Staff>();
+            commandList = new List<Command>();
             increment = 0;
             squareList.Add(new Square(1, new RankChief()));
-            while(increment < nbrTableTwo)
+            while (increment < nbrTableTwo)
             {
                 tableList.Add(new Table(increment, 2));
                 squareList[0].IdTablesList.Add(increment);
@@ -64,7 +66,7 @@ namespace MasterChefResto.model
             }
             increment = 0;
             staffList.Add(new MasterHotel());
-            
+
         }
 
         public static void CreateCustomerGroup()
@@ -77,7 +79,7 @@ namespace MasterChefResto.model
         public static int CountNumberOfCustomer()
         {
             int nbrOfClient = 0;
-            foreach(CustomerGroup customGroup in Room.customerGroupList)
+            foreach (CustomerGroup customGroup in Room.customerGroupList)
             {
                 nbrOfClient = nbrOfClient + customGroup.NbrCustomerInGroup;
             }

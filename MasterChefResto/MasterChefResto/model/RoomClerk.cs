@@ -18,16 +18,22 @@ namespace MasterChefResto.model
         public void CheckStateTable()
         {
             Boolean served = false;
-            foreach(Table table in Room.tableList)
+            foreach (Table table in Room.tableList)
             {
-                if(!table.Bread || !table.Water)
+                if (!table.Bread || !table.Water)
                 {
+                    ///////////////////////////////////////////////////
+                    //*à faire*////////////////////////////////////////
+                    ///////////////////////////////////////////////////
                     //se déplace à la position de la table table.tableId
                     Distribute(table);
                     served = true;
                 }
-                if(served)
+                if (served)
                 {
+                    ///////////////////////////////////////////////////
+                    //*à faire*////////////////////////////////////////
+                    ///////////////////////////////////////////////////
                     //retourne à sa position d'observation
                     served = false;
                 }
