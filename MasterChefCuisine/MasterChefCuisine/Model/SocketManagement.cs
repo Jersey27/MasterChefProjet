@@ -16,7 +16,7 @@ namespace MasterChefCuisine.Model
         private static SocketManagement instance;
         private List<ObserverChief> chiefs = new List<ObserverChief>();
         private IPAddress ip = IPAddress.Parse("10.176.129.194");
-        private Socket socket;
+        private Socket socket, client;
         private bool service = true;
         #endregion
         private SocketManagement(bool isTest)
@@ -28,7 +28,7 @@ namespace MasterChefCuisine.Model
                 socket.Bind(new IPEndPoint(ip, 23456));
                 socket.Listen(1);
                 while (true) { 
-                    Socket client = socket.Accept();
+                    client = socket.Accept();
                     MyThread newThread = new MyThread(client);
                     Thread _connec = new Thread(new ThreadStart(newThread.Connection));
                    
@@ -38,7 +38,9 @@ namespace MasterChefCuisine.Model
                 }
             }
 
+
         }
+
 
         #region commande du socket
         public class MyThread
@@ -56,7 +58,6 @@ namespace MasterChefCuisine.Model
             public void Connection()
             {
                 bool listener = true;
-                bool writer = true;
                 while (listener)
                 {
                     byte[] data = new byte[1024];
@@ -75,18 +76,17 @@ namespace MasterChefCuisine.Model
                     Console.WriteLine("Message: {0} {1}", message, listener);
                     Thread.Sleep(1000);
                 }
-                while (writer)
-                {
-                    
-
-                }
+               
 
                 // client.Shutdown(SocketShutdown.Receive);
                 // client.Close();
             }
         }
-            public void sendMenu()
+            public void sendPlate(Command command)
         {
+            string message = JsonConvert.SerializeObject(command);
+            byte[] msg = System.Text.Encoding.UTF8.GetBytes(message);
+            client.Send(msg, msg.Length, SocketFlags.None);
             //socket.
         }
         #endregion
