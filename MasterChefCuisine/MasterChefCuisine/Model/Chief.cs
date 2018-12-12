@@ -10,6 +10,7 @@ namespace MasterChefCuisine.Model
     {
         static Chief instance;
         SocketManagement socket;
+        SQLQuery query;
         public List<Recipe> menu { get; set; }
         public List<PartChief> cooks { get; set; }
         private Chief(bool isTest)
@@ -20,15 +21,14 @@ namespace MasterChefCuisine.Model
             cooks = new List<PartChief>();
             socket.addChiefObserver(this);
         }
+        /// <summary>
+        /// Assigne le plat a l'un des cuisiniers
+        /// </summary>
+        /// <param name="command">la commande a diffuser</param>
         public void assignPlate(Command command)
         {
             command.recipe = menu.Find(x => x.IdRecipe == command.RecipeId);
             UpdateObserverCook(command);
-        }
-        public void newMenu()
-        {
-            menu = new List<Recipe>();
-
         }
         public static Chief getInstance(bool isTest)
         {
@@ -43,7 +43,10 @@ namespace MasterChefCuisine.Model
         {
             assignPlate(command);
         }
-
+        /// <summary>
+        /// Ajoute un cuisinier a la liste de diffusion (Design Pattern Observer)
+        /// </summary>
+        /// <param name="observer">Le Chef de partie concerné</param>
         public void AddObserverCook(PartChief observer)
         {
             cooks.Add(observer);
@@ -63,6 +66,14 @@ namespace MasterChefCuisine.Model
                 }
 
             }
+        }
+        public bool RecipeCanBePrepared(Command command)
+        {
+            foreach (Ingredient ing in command.recipe.Ingredients)
+            {
+                //query.getIngredient();
+            }
+            return true;
         }
     }
 }
