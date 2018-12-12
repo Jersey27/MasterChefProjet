@@ -51,7 +51,7 @@ namespace MasterChefCuisineTest.Model
 
             foreach (object[] i in result)
             {
-                Assert.AreEqual(150, (byte)i[4]);
+                Assert.AreEqual(150, (int)i[4]);
             }
         }
 
@@ -78,7 +78,7 @@ namespace MasterChefCuisineTest.Model
 
             foreach(object[] i in result)
             {
-                if ((byte)i[0] != 150)
+                if ((int)i[0] != 150)
                     Assert.Fail();
             }
             result.Clear();
@@ -101,7 +101,7 @@ namespace MasterChefCuisineTest.Model
 
             foreach (object[] i in result)
             {
-                Assert.AreEqual((byte)i[0], 149);
+                Assert.AreEqual((int)i[0], 149);
             }
 
             cmd = string.Format("UPDATE Materiel SET quantite_materiel = 150 WHERE nom_materiel = 'Cuitochette';");
