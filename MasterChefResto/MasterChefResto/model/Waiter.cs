@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    public class Waiter : Staff
+    public class Waiter : Staff, ObserverWaiter
     {
         public bool Busy { get; set; }
 
@@ -56,6 +56,11 @@ namespace MasterChefResto.model
         public void MoveToTheBottom()
         {
             this.position.PosY = this.position.PosY - 1;
+        }
+
+        public void Update(Command command)
+        {
+            throw new NotImplementedException();
         }
     }
 }

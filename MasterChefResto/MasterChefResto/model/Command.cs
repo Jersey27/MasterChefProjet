@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    class Command
+    public class Command
     {
         public int CustomerIdForCommand { get; set; }
         private string Starter { get; set; }
