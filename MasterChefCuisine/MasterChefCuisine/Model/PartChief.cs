@@ -11,45 +11,57 @@ namespace MasterChefCuisine.Model
     {
         Chief chief;
         static List<Clerk> clerks;
+        static List<Command> listCommand = new List<Command>();
+        Thread thread;
+        Semaphore semaphore = new Semaphore(1, 1);
+
+        public bool isBusy { get; set; }
 
         public PartChief(bool isTest)
         {
             ThreadPool.SetMaxThreads(1, 5);
             chief = Chief.getInstance(isTest);
             chief.AddObserverCook(this);
+            thread = new Thread(cooking);
         }
 
         public void update(Command command)
         {
-            if (!isBusy)
+            listCommand.Add(command);
+            if (!thread.IsAlive)
             {
-                cooking(command);
-            }
-            else
-            {
-
+                thread.Start();
             }
         }
 
-        public bool isBusy { get; set; }
         TempStorage tempStorage = TempStorage.getInstance();
-        public Command cooking(Command command)
+        public void cooking()
         {
-            Task<Command> task1 = Task.Run(() => prepareLoop(command));
-            task1.Wait();
-            if (command.recipe.tpsCook > 0)
+            while (listCommand.Any())
             {
-                command.state = Command.commandState.isCooking;
+                semaphore.WaitOne();
+                Command command = listCommand.First();
+                listCommand.Remove(listCommand.First());
+                semaphore.Release();
+                isBusy = true;
+                Task<Command> task1 = Task.Run(() => prepareLoop(command));
+                task1.Wait();
+                isBusy = false;
+                if (command.recipe.tpsCook > 0)
+                {
+                    command.state = Command.commandState.isCooking;
+                    Task<Command> task3 = Task.Run(() => BakingLoop(command));
+                }
+                if (command.recipe.tpsRest > 0)
+                {
+                    command.state = Command.commandState.isResting;
+                    Task<Command> task2 = Task.Run(() => restingLoop(command));
+                }
+                command.state = Command.commandState.Ready;
+
             }
-            if (command.recipe.tpsRest > 0)
-            {
-                command.state = Command.commandState.isResting;
-                Task<Command> task2 = Task.Run(() => restingLoop(command));
-                task2.Wait();
-            }
-            command.state = Command.commandState.Ready;
-            return command;
         }
+        #region cooking method
         public Command prepareLoop(Command command)
         {
             Thread.Sleep(command.recipe.tpsPrep * 1000);
@@ -59,12 +71,21 @@ namespace MasterChefCuisine.Model
         {
             tempStorage.comStore.Add(command);
             Thread.Sleep(command.recipe.tpsRest * 1000);
+            Command search = tempStorage.comStore.Find(x => x.Commandid == command.Commandid);
+            foreach (Command com in tempStorage.comStore)
+            {
+                if (com == search)
+                {
+                    com.state = Command.commandState.Ready;
+                }
+            }
+
             return command;
         }
-        private Command BakingLoop(object state)
+        public Command BakingLoop(Command command)
         {
-            Command command = state as Command;
             return command;
         }
     }
 }
+#endregion

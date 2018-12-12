@@ -10,6 +10,7 @@ namespace MasterChefCuisine.Model
     {
         public List<Command> comStore { get; set; }
         public List<Ingredient> ingStore { get; set; }
+        public List<Recipe> repStore { get; set; }
 
         private static TempStorage instance = new TempStorage();
 
@@ -17,6 +18,7 @@ namespace MasterChefCuisine.Model
         {
             comStore = new List<Command>();
             ingStore = new List<Ingredient>();
+            repStore = new List<Recipe>();
         }
 
         public static TempStorage getInstance()

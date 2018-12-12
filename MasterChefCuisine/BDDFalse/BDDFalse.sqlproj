@@ -7,7 +7,7 @@
     <Name>BDDFalse</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{0afed4af-04aa-4e19-99c4-6b327f94021c}</ProjectGuid>
+    <ProjectGuid>{10497866-8eaf-4f67-9fa8-041fc6ec6ba1}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
