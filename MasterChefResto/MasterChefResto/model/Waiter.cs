@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MasterChefResto.model
@@ -9,6 +10,13 @@ namespace MasterChefResto.model
     public class Waiter : Staff, ObserverWaiter
     {
         public bool Busy { get; set; }
+        SocketManagement socket = SocketManagement.getInstance();
+
+        public Waiter()
+        {
+            Thread TimeThread;
+            TimeThread = new Thread(new ThreadStart(CheckTableState));
+        }
 
         public void CheckTableState()
         {
@@ -17,9 +25,12 @@ namespace MasterChefResto.model
             {
                 if (table.State_Diner == "Dirty")
                 {
+                   
                     //se déplace à la position de la table table.tableId
                     SetTable(table);
                     cleaned = true;
+                    socket.senddirty();
+
                 }
                 if(cleaned)
                 {

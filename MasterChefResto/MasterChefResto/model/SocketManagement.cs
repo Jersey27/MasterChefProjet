@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Net;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace MasterChefResto.model
 {
@@ -14,12 +15,12 @@ namespace MasterChefResto.model
         private static SocketManagement instance = new SocketManagement();
         private Socket client;
         Socket management;
-
+        List<ObserverWaiter> waiters;
+        
 
         private SocketManagement()
         {
-            management = SocketManagement.getInstance(false);
-            
+           
             IPAddress ip = IPAddress.Parse("");
             int port = 12345;
             IPEndPoint ipEnd = new IPEndPoint(ip, port);
@@ -32,26 +33,38 @@ namespace MasterChefResto.model
             catch (SocketException E)
             {
                 Console.WriteLine("Connection" + E.Message);
-            }
+            } 
+        }
+        public void reader(Command command)
+        {
 
             bool listener = true;
 
             while (listener)
             {
-                byte[] data = new byte[1024];
-                client.Receive(data);
+                byte[] data = new byte[1024 * 4];
+                int readBytes = client.Receive(data);
 
-                string message = System.Text.Encoding.UTF8.GetString(data);
-                Command newCommand = JsonConvert.DeserializeObject<Command>(message);
-                management.(newCommand);
-                if (message == "exit")
+                MemoryStream memoryStream = new MemoryStream();
+
+                while (readBytes > 0)
                 {
+                    memoryStream.Write(data, 0, readBytes);
 
-                    message = "L'utilisateur s'est déconnecté.";
-                    listener = false;
-
+                    if (client.Available > 0)
+                    {
+                        readBytes = client.Receive(data);
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
-                Console.WriteLine("Message: {0} {1}", message, listener);
+                byte[] totalByte = memoryStream.ToArray();
+                memoryStream.Close();
+                string message = System.Text.Encoding.UTF8.GetString(totalByte);
+                Command newCommand = JsonConvert.DeserializeObject<Command>(message);
+
             }
         }
         public void sendcommand(Command command)
@@ -62,13 +75,23 @@ namespace MasterChefResto.model
             client.Send(msg, msg.Length, SocketFlags.None);
         }
 
+        public void senddirty ()
+        {
+
+            string message = "dirty";
+            message = JsonConvert.SerializeObject(message);
+            byte[] msg = System.Text.Encoding.UTF8.GetBytes(message);
+            client.Send(msg, msg.Length, SocketFlags.None);
+
+        }
+
         public void addwaiterObserver(ObserverWaiter waiter)
         {
-            waiter.Add(chief);
+            waiters.Add(waiter);
         }
         public void UpdateChiefObserver(Command command)
         {
-            foreach (Chief chief in chiefs)
+            foreach (Waiter chief in waiters)
             {
                 chief.Update(command);
             }

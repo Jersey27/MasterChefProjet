@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MasterChefResto.model
 {
-    interface ObserverWaiter
+    public interface ObserverWaiter
     {
+         void Update(Command command);
     }
 }
