@@ -27,10 +27,10 @@ namespace MasterChefCuisine.Model
         /// <param name="condition">Les conditions spécique de récupération</param>
         /// <param name="connection">La connection à la base de données</param>
         /// <returns>Le résultat de la requête</returns>
-        public ArrayList selectFromDB(string selection, string table, string condition, SqlConnection connection)
+        public ArrayList selectFromDB(string selection, string table, string condition)
         {
             string cmd = string.Format("SELECT {0} FROM {1} WHERE {2};", selection, table, condition);
-            query = new SqlCommand(cmd, connection);
+            query = new SqlCommand(cmd, connector.connection);
             SqlDataReader reader = query.ExecuteReader();
             ArrayList result = new ArrayList();
 
@@ -66,7 +66,6 @@ namespace MasterChefCuisine.Model
         /// <returns>La recette demandée</returns>
         public Recipe getRecipe(string recipeName)
         {
-            SqlConnection connection = query.Connection;
             ArrayList recipeDB = new ArrayList();
             ArrayList ings = new ArrayList();
             Ingredient ingred = new Ingredient();
@@ -75,7 +74,7 @@ namespace MasterChefCuisine.Model
 
             string condition = string.Format("nom_recette = {0}", recipeName);
 
-            recipeDB = selectFromDB("*", "Recettes", condition, connection);
+            recipeDB = selectFromDB("*", "Recettes", condition);
 
             foreach (object[] i in recipeDB)
             {
@@ -108,7 +107,7 @@ namespace MasterChefCuisine.Model
             }
 
             condition = string.Format("id_recette = {0}", recipe.IdRecipe);
-            ings = selectFromDB("id_ingredient, quantite_ingredient_recette", "Composition_ingredient", condition, connection);
+            ings = selectFromDB("id_ingredient, quantite_ingredient_recette", "Composition_ingredient", condition);
 
             foreach (object[] i in ings)
             {
@@ -137,7 +136,7 @@ namespace MasterChefCuisine.Model
 
             string condition = string.Format("nom_ingredient = '{0}'", name);
 
-            ing = selectFromDB("*", "Ingredients", condition, connection);
+            ing = selectFromDB("*", "Ingredients", condition);
 
             foreach (object[] i in ing)
             {
@@ -178,7 +177,7 @@ namespace MasterChefCuisine.Model
 
             string condition = string.Format("id_ingredient = {0}", id);
 
-            ing = selectFromDB("*", "Ingredient", condition, connection);
+            ing = selectFromDB("*", "Ingredient", condition);
 
             foreach (object[] i in ing)
             {

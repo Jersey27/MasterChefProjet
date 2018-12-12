@@ -18,12 +18,25 @@ namespace MasterChefCuisine.Model
         }
         public void Wash()
         {
-            // TODO : collecter tout le matériel salle
+            // On met dans un ArrayList le matos sale récup sur la BDD
+            ArrayList matos = query.selectFromDB("nom_materiel, quantite_materiel", "Materiel", "etat_materiel = 'Sale'");
+
+            // La liste de chose en machine prêtes à laver
+            List<string> lavage = new List<string>();
+
+            // TODO : collecter tout le matériel sale
             while (dirtydishes.Count > 0)
             {
                 for (int i = 0; i <15; i++)
                 {
+                    // Récupération des valeurs d'un résultat à chaque boucle
+                    foreach(object[] o in matos)
+                    {
+                        // o[0] de chaque objet vaut nom_materiel
+                        lavage.Add(o[0].ToString());
+                        // o[1] de chaque objet vaut quantite_materiel
 
+                    }
                 }
             }
         }

@@ -55,7 +55,6 @@
     <Compile Include="Model\Clerk.cs" />
     <Compile Include="Model\Command.cs" />
     <Compile Include="Model\DirtyDisheCounter.cs" />
-    <Compile Include="Model\DishWasher.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\ICook.cs" />
     <Compile Include="Model\Ingredient.cs" />
@@ -68,7 +67,6 @@
     <Compile Include="Model\Preparator.cs" />
     <Compile Include="Model\ReadyCounter.cs" />
     <Compile Include="Model\Recipe.cs" />
-    <Compile Include="Model\Sink.cs" />
     <Compile Include="Model\SocketManagement.cs" />
     <Compile Include="Model\SQLConnector.cs" />
     <Compile Include="Model\SQLQuery.cs" />

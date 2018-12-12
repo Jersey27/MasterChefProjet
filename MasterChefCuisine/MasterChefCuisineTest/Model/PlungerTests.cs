@@ -8,8 +8,6 @@ namespace MasterChefCuisineTest.Model
     public class PlungerTests
     {
         Plunger plunger = new Plunger();
-        IMachine sink = new Sink();
-        IMachine dishwasher = new DishWasher();
         IMachine whashingMachine = new WashingMachine();
 
         SQLQuery query;
@@ -17,7 +15,7 @@ namespace MasterChefCuisineTest.Model
         [TestMethod]
         public void washTest()
         {
-            plunger.Wash(dishwasher);
+            plunger.Wash();
             Assert.Fail();
         }
 
