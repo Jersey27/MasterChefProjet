@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="Controler\KitchenControlerTests.cs" />
     <Compile Include="Model\ChiefTests.cs" />
+    <Compile Include="Model\ClerkTest.cs" />
+    <Compile Include="Model\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\PartChiefTests.cs" />
     <Compile Include="Model\DirtyDisheCounterTests.cs" />
@@ -79,6 +81,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BDDFalse\BDDFalse.sqlproj">
+      <Project>{10497866-8EAF-4F67-9FA8-041FC6EC6BA1}</Project>
+      <Name>BDDFalse</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MasterChefCuisine\MasterChefCuisine.csproj">
       <Project>{61064c6e-085d-4757-a70d-2dd6d6e06aca}</Project>
       <Name>MasterChefCuisine</Name>

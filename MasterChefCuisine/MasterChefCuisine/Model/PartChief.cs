@@ -9,16 +9,21 @@ namespace MasterChefCuisine.Model
 {
     public class PartChief : Employee
     {
+        public static List<Command> listCommand { get; set; }
+
         Chief chief;
         static List<Clerk> clerks;
-        static List<Command> listCommand = new List<Command>();
+
         Thread thread;
-        Semaphore semaphore = new Semaphore(1, 1);
+        Semaphore semaphorePreparation = new Semaphore(1, 1);
+        Semaphore semaphoreNewCommand = new Semaphore(1, 1);
 
         public bool isBusy { get; set; }
 
         public PartChief(bool isTest)
         {
+            if (listCommand == null)
+                listCommand = new List<Command>();
             ThreadPool.SetMaxThreads(1, 5);
             chief = Chief.getInstance(isTest);
             chief.AddObserverCook(this);
@@ -27,7 +32,12 @@ namespace MasterChefCuisine.Model
 
         public void update(Command command)
         {
-            listCommand.Add(command);
+            semaphoreNewCommand.WaitOne();
+            if(!listCommand.Exists(x => x.Commandid == command.Commandid) && !listCommand.Exists(x => x.recipe == command.recipe))
+            {
+                listCommand.Add(command);
+                semaphoreNewCommand.Release();
+            }
             if (!thread.IsAlive)
             {
                 thread.Start();
@@ -39,26 +49,38 @@ namespace MasterChefCuisine.Model
         {
             while (listCommand.Any())
             {
-                semaphore.WaitOne();
-                Command command = listCommand.First();
-                listCommand.Remove(listCommand.First());
-                semaphore.Release();
+                semaphorePreparation.WaitOne();
+                Command command = listCommand.First(x => x.state == Command.commandState.notReady);
+                listCommand.Remove(listCommand.First(x => x == command));
+                semaphorePreparation.Release();
                 isBusy = true;
-                Task<Command> task1 = Task.Run(() => prepareLoop(command));
-                task1.Wait();
-                isBusy = false;
-                if (command.recipe.tpsCook > 0)
+                if (command != null)
                 {
-                    command.state = Command.commandState.isCooking;
-                    Task<Command> task3 = Task.Run(() => BakingLoop(command));
-                }
-                if (command.recipe.tpsRest > 0)
-                {
-                    command.state = Command.commandState.isResting;
-                    Task<Command> task2 = Task.Run(() => restingLoop(command));
-                }
-                command.state = Command.commandState.Ready;
+                    Task<Command> task1 = Task.Run(() => prepareLoop(command));
+                    task1.Wait();
+                    isBusy = false;
+                    if (command.recipe.tpsCook > 0)
+                    {
+                        command.state = Command.commandState.isCooking;
+                        Task<Command> task3 = Task.Run(() => BakingLoop(command));
 
+                        if (command.recipe.tpsRest > 0)
+                        {
+                            command.state = Command.commandState.isResting;
+                            Task<Command> task2 = Task.Run(() => restingLoop(command));
+                        }
+                    }
+                    else if (command.recipe.tpsRest > 0)
+                    {
+                        command.state = Command.commandState.isResting;
+                        Task<Command> task2 = Task.Run(() => restingLoop(command));
+                    }
+                    listCommand.Add(command);
+                    foreach (Clerk clerk in clerks)
+                    {
+                        clerk.sendPlate();
+                    }
+                }
             }
         }
         #region cooking method
@@ -84,6 +106,7 @@ namespace MasterChefCuisine.Model
         }
         public Command BakingLoop(Command command)
         {
+            Thread.Sleep(command.recipe.tpsCook * 1000);
             return command;
         }
     }

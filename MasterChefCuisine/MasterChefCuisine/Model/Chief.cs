@@ -10,7 +10,7 @@ namespace MasterChefCuisine.Model
     {
         static Chief instance;
         SocketManagement socket;
-        SQLQuery query;
+        SQLQuery query = SQLQuery.getInstance();
         public List<Recipe> menu { get; set; }
         public List<PartChief> cooks { get; set; }
         private Chief(bool isTest)
@@ -71,7 +71,11 @@ namespace MasterChefCuisine.Model
         {
             foreach (Ingredient ing in command.recipe.Ingredients)
             {
-                //query.getIngredient();
+                //Ingredient stockIng = query.getIngredient();
+                //if (stockIng.quantityIngredient - ing.quantityIngredient)
+                //{
+
+                //}
             }
             return true;
         }

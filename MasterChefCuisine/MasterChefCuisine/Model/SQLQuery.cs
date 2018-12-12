@@ -10,8 +10,9 @@ using Newtonsoft.Json;
 
 namespace MasterChefCuisine.Model
 {
-    public abstract class SQLQuery
+    public class SQLQuery
     {
+        static SQLQuery instance = new SQLQuery();
         /// <summary>
         /// La commande SQL
         /// </summary>
@@ -39,7 +40,7 @@ namespace MasterChefCuisine.Model
                 reader.GetValues(row);
                 result.Add(row);
             }
-
+            reader.Close();
             return result;
         }
 
@@ -53,7 +54,7 @@ namespace MasterChefCuisine.Model
         /// <param name="connection">la connection à la base de données</param>
         public void updateDB(string table, string column, string value, string condition, SqlConnection connection)
         {
-            string cmd = string.Format("UPDATE {0} SET {1} = {2} WHERE {3};", table, column, value, condition);
+            string cmd = string.Format("UPDATE {0} SET {1} = '{2}' WHERE {3};", table, column, value, condition);
             query = new SqlCommand(cmd, connection);
             query.ExecuteNonQuery();
         }
@@ -128,15 +129,15 @@ namespace MasterChefCuisine.Model
         /// <returns>L'ingrédient recetteé</returns>
         public Ingredient getIngredient(string name)
         {
-            SqlConnection connection = query.Connection;
+            SqlConnection connection = connector.connection;
 
             Ingredient ingredient = new Ingredient();
 
             ArrayList ing = new ArrayList();
 
-            string condition = string.Format("nom_ingredient = {0}", name);
+            string condition = string.Format("nom_ingredient = '{0}'", name);
 
-            ing = selectFromDB("*", "Ingredient", condition, connection);
+            ing = selectFromDB("*", "Ingredients", condition, connection);
 
             foreach (object[] i in ing)
             {
@@ -208,9 +209,14 @@ namespace MasterChefCuisine.Model
         }
         public void TakeIngredient(Ingredient ingredient)
         {
-            SqlConnection connection = query.Connection;
+            SqlConnection connection = connector.connection;
             Ingredient ingredient1 = getIngredient(ingredient.NomIngredient);
-            updateDB("Ingredient", "nbIngredient", (ingredient1.quantityIngredient - ingredient.quantityIngredient).ToString(), "NomIngredient=" + ingredient1.NomIngredient, connection);
+            updateDB("Ingredients", "quantite_ingredient", (ingredient1.quantityIngredient - ingredient.quantityIngredient).ToString(), "Nom_Ingredient='" + ingredient1.NomIngredient + "'", connection);
         }
+        public static SQLQuery getInstance()
+        {
+            return instance;
+        }
+
     }
 }
