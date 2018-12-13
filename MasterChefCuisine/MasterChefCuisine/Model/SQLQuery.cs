@@ -52,9 +52,36 @@ namespace MasterChefCuisine.Model
         /// <param name="value">La nouvelle valeur</param>
         /// <param name="condition">La condition spécifique pour les données</param>
         /// <param name="connection">la connection à la base de données</param>
-        public void updateDB(string table, string column, string value, string condition, SqlConnection connection)
+        public void updateDB(string table, string column, string value, string condition)
         {
+            SqlConnection connection = connector.connection;
             string cmd = string.Format("UPDATE {0} SET {1} = '{2}' WHERE {3};", table, column, value, condition);
+            query = new SqlCommand(cmd, connection);
+            query.ExecuteNonQuery();
+        }
+
+        public void updateDB(string table, string column, int value, string condition)
+        {
+            SqlConnection connection = connector.connection;
+            string cmd = string.Format("UPDATE {0} SET {1} = {2} WHERE {3};", table, column, value, condition);
+            query = new SqlCommand(cmd, connection);
+            query.ExecuteNonQuery();
+        }
+
+        public void operationToDB(string table, string column, int value, string condition, bool operation)
+        {
+            SqlConnection connection = connector.connection;
+            string operateur;
+            if(operation)
+            {
+                operateur = "+";
+            }
+            else
+            {
+                operateur = "-";
+            }
+
+            string cmd = string.Format("UPDATE {0} SET {1} = {1} {4} {2} WHERE {3};", table, column, value, condition, operateur);
             query = new SqlCommand(cmd, connection);
             query.ExecuteNonQuery();
         }
@@ -79,33 +106,13 @@ namespace MasterChefCuisine.Model
             foreach (object[] i in recipeDB)
             {
                 recipe.IdRecipe = (int)i[0];
-            }
-
-            foreach (object[] i in recipeDB)
-            {
                 recipe.NameRecipe = i[1].ToString();
-            }
-
-            foreach (object[] i in recipeDB)
-            {
                 recipe.tpsCook = (int)i[2];
-            }
-
-            foreach (object[] i in recipeDB)
-            {
                 recipe.tpsRest = (int)i[3];
-            }
-
-            foreach (object[] i in recipeDB)
-            {
                 recipe.tpsPrep = (int)i[4];
-            }
-
-            foreach (object[] i in recipeDB)
-            {
                 recipe.nombre_parts = (int)i[5];
+                recipe.available = (bool)i[6];
             }
-
             condition = string.Format("id_recette = {0}", recipe.IdRecipe);
             ings = selectFromDB("id_ingredient, quantite_ingredient_recette", "Composition_ingredient", condition);
 
@@ -210,7 +217,7 @@ namespace MasterChefCuisine.Model
         {
             SqlConnection connection = connector.connection;
             Ingredient ingredient1 = getIngredient(ingredient.NomIngredient);
-            updateDB("Ingredients", "quantite_ingredient", (ingredient1.quantityIngredient - ingredient.quantityIngredient).ToString(), "Nom_Ingredient='" + ingredient1.NomIngredient + "'", connection);
+            updateDB("Ingredients", "quantite_ingredient", (ingredient1.quantityIngredient - ingredient.quantityIngredient).ToString(), "Nom_Ingredient='" + ingredient1.NomIngredient + "'");
         }
         public static SQLQuery getInstance()
         {
