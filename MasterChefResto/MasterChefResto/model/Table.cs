@@ -9,6 +9,7 @@ namespace MasterChefResto.model
     public class Table
     {
         public int tableId;
+        public int couver = 0;
         public bool Bread { get; set; }
         public bool Water { get; set; }
         public int NumberOfPlace { get; set; }

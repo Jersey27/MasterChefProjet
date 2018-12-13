@@ -75,6 +75,15 @@ namespace MasterChefResto.model
                                     Room.commandList[nbrOfCommands].Starter.Add(menuDessert[choice]);
                                 }
                                 Thread.Sleep(500);
+                                //Regarder dans la bdd si les couvert nécessaires sont présents.
+
+                                //supprimer les éléments de la bdd
+                                
+                                //ajouter les couverts à la table
+                                tables.couver = customGroup.customerList.Count();
+                                Room.waiterList[IdRankChief].tablesTemp.Add(tables.tableId);
+                                Room.waiterList[IdRankChief].nbrCustomerTemp.Add(tables.couver);
+
                             }
                         }
                     }

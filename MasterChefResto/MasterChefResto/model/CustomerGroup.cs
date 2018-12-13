@@ -8,6 +8,7 @@ namespace MasterChefResto.model
 {
     public class CustomerGroup
     {
+        public bool HaveToKillThemselves { get; set; }
         public int GroupNumber { get; set; }
         public int NbrCustomerInGroup { get; set; }
         public int TableAssigned { get; set; }
@@ -18,10 +19,11 @@ namespace MasterChefResto.model
 
         public CustomerGroup()
         {
-            this.TableAssigned = -1;
-            this.Commanded = false;
-            this.Seated = false;
-            this.Finished = false;
+            TableAssigned = -1;
+            HaveToKillThemselves = false;
+            Commanded = false;
+            Seated = false;
+            Finished = false;
             customerList = new List<Customer>();
             Random random = new Random();
             this.NbrCustomerInGroup = random.Next(1, 10);

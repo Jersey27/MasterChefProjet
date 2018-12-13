@@ -9,17 +9,19 @@ namespace MasterChefResto.model
 {
     public class MasterHotel : Staff
     {
+        public static bool HaveToKillHimself;
         static MasterHotel instance = new MasterHotel();
 
         public MasterHotel()
         {
+            HaveToKillHimself = false;
             Thread MasterHotelThread;
             MasterHotelThread = new Thread(new ThreadStart(MasterHotelLoop));
         }
 
         private void MasterHotelLoop()
         {
-            while (Thread.CurrentThread.IsAlive)
+            while (!HaveToKillHimself)
             {
 
                 //recherche des groupes de clients non-assignés à une table
@@ -36,6 +38,14 @@ namespace MasterChefResto.model
                             {
                                 //assigner la table au Groupe de client
                                 customGroup.TableAssigned = tables.tableId;
+                            }
+                            else
+                            {
+                                foreach(Customer custom in customGroup.customerList)
+                                {
+                                    custom.HaveToKillHimself = true;
+                                }
+                                Room.customerGroupList.Remove(customGroup);
                             }
                         }
                     }

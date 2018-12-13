@@ -22,7 +22,7 @@ namespace MasterChefResto.model
         int nbrTableTen = 2;
         public int increment;
 
-        private Room()
+        public Room()
         {
             squareList = new List<Square>();
             tableList = new List<Table>();
