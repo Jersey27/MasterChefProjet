@@ -8,7 +8,7 @@ namespace MasterChefCuisineTest.Model
     [TestClass]
     public class PlungerTests
     {
-        Plunger plunger = new Plunger();
+        Plunger plunger = new Plunger(true);
         
         SQLQuery query = SQLQuery.getInstance();
 

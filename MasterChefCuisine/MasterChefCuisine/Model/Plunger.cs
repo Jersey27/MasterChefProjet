@@ -11,8 +11,16 @@ namespace MasterChefCuisine.Model
     public class Plunger : Preparator
     {
         SQLQuery query = SQLQuery.getInstance();
-        public void plunger()
+        SocketManagement socket;
+        Task task;
+        public Plunger()
         {
+            socket = SocketManagement.getInstance(false);
+            socket.addObserverPlunger(this);
+        }
+        public Plunger(bool isTest)
+        {
+
         }
         public void Wash()
         {
@@ -71,7 +79,12 @@ namespace MasterChefCuisine.Model
 
         public void update()
         {
-            Wash();
+            if(task.Status == TaskStatus.Running)
+            {
+                task.Wait();    
+            }
+            task = Task.Run(() => Wash());
+            
         }
     }
 }

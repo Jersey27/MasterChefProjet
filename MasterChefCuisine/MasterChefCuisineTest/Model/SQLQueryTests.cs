@@ -32,27 +32,12 @@ namespace MasterChefCuisineTest.Model
             foreach(object[] i in result)
             {
                 Assert.AreEqual(31, (int)i[0]);
-            }
-
-            foreach (object[] i in result)
-            {
                 Assert.AreEqual("Nappe", i[1].ToString());
-            }
-
-            foreach (object[] i in result)
-            {
                 Assert.AreEqual("Matériel commun", i[2].ToString());
-            }
-
-            foreach (object[] i in result)
-            {
                 Assert.AreEqual("Propre", i[3].ToString());
-            }
-
-            foreach (object[] i in result)
-            {
                 Assert.AreEqual(40, (int)i[4]);
             }
+
         }
 
         [TestMethod]
@@ -161,25 +146,9 @@ namespace MasterChefCuisineTest.Model
             foreach (object[] i in array)
             {
                 ingredient.NomIngredient = i[1].ToString();
-            }
-
-            foreach (object[] i in array)
-            {
                 ingredient.typeIngredient = i[2].ToString();
-            }
-
-            foreach (object[] i in array)
-            {
                 ingredient.quantityIngredient = (int)i[3];
-            }
-
-            foreach (object[] i in array)
-            {
                 ingredient.datePeremption = Convert.ToDateTime(i[4]);
-            }
-
-            foreach (object[] i in array)
-            {
                 ingredient.canBePrepared = Convert.ToBoolean(i[5]);
             }
 
