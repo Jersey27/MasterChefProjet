@@ -7,6 +7,7 @@ using System.Threading;
 using System.Net;
 using System.Collections;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace MasterChefCuisine.Model
 {
@@ -18,23 +19,26 @@ namespace MasterChefCuisine.Model
         private IPAddress ip = IPAddress.Parse("10.176.129.194");
         private Socket socket, client;
         private bool service = true;
+        List<Plunger> plungers = new List<Plunger>;
+        private object socketmanager;
         #endregion
         private SocketManagement(bool isTest)
         {
-            if(!isTest)
+            if (!isTest)
             {
+                
                 ArrayList acceptList = new ArrayList();
                 socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 socket.Bind(new IPEndPoint(ip, 23456));
                 socket.Listen(1);
-                while (true) { 
+                while (true) {
                     client = socket.Accept();
                     MyThread newThread = new MyThread(client);
                     Thread _connec = new Thread(new ThreadStart(newThread.Connection));
-                   
+
                     acceptList.Add(client);
                     _connec.Start();
-                        //Thread writer = new Thread();
+                    //Thread writer = new Thread();
                 }
             }
 
@@ -55,7 +59,7 @@ namespace MasterChefCuisine.Model
                 management = SocketManagement.getInstance(false);
             }
 
-            public void Connection()
+            public void Receivecommand()
             {
                 bool listener = true;
                 while (listener)
@@ -66,28 +70,51 @@ namespace MasterChefCuisine.Model
                     string message = System.Text.Encoding.UTF8.GetString(data);
                     Command newCommand = JsonConvert.DeserializeObject<Command>(message);
                     management.UpdateChiefObserver(newCommand);
-                    if (message == "exit")
-                    {
 
-                        message = "L'utilisateur s'est déconnecté.";
-                        listener = false;
-
-                    }
-                    Console.WriteLine("Message: {0} {1}", message, listener);
-                    Thread.Sleep(1000);
                 }
-               
+
 
                 // client.Shutdown(SocketShutdown.Receive);
                 // client.Close();
             }
         }
-            public void sendPlate(Command command)
+        public void sendPlate(Command command)
         {
             string message = JsonConvert.SerializeObject(command);
             byte[] msg = System.Text.Encoding.UTF8.GetBytes(message);
             client.Send(msg, msg.Length, SocketFlags.None);
             //socket.
+        }
+
+        public void receiveddurty(Plunger dirty)
+        {
+            byte[] data = new byte[1024 * 4];
+            int readBytes = client.Receive(data);
+
+            MemoryStream memoryStream = new MemoryStream();
+
+            while (readBytes > 0)
+            {
+                memoryStream.Write(data, 0, readBytes);
+
+                if (client.Available > 0)
+                {
+                    readBytes = client.Receive(data);
+                }
+                else
+                {
+                    break;
+                }
+            }
+            byte[] totalByte = memoryStream.ToArray();
+            memoryStream.Close();
+            string message = System.Text.Encoding.UTF8.GetString(totalByte);
+            Plunger newdirty = JsonConvert.DeserializeObject<Plunger>(message);
+
+            if (message == "dirty")
+            {
+               UpdatePlungerObserver();
+            }
         }
         #endregion
         #region command simulant le socket (test only)
@@ -97,6 +124,18 @@ namespace MasterChefCuisine.Model
         }
         #endregion
         #region observer
+        public void addObserverPlunger(Plunger plunger)
+        {
+            plungers.Add(plunger);
+        }
+         public void UpdatePlungerObserver()
+        {
+            foreach(Plunger plunger in plungers)
+            {
+                plunger.update();
+            }
+        }
+
         public void addChiefObserver(ObserverChief chief)
         {
             chiefs.Add(chief);
