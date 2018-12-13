@@ -75,12 +75,23 @@ namespace MasterChefResto.model
                                     Room.commandList[nbrOfCommands].Starter.Add(menuDessert[choice]);
                                 }
                                 Thread.Sleep(500);
-                                //Regarder dans la bdd si les couvert nécessaires sont présents.
+
+                                tables.couver = customGroup.customerList.Count();
 
                                 //supprimer les éléments de la bdd
-                                
+                                String condition = "nom_materiel = 'Fourchette' AND etat_materiel = 'Propre'";
+                                SQLQuery.operationToDB("Materiel", "quantite_materiel", tables.couver, condition, false);
+                                condition = "nom_materiel = 'Couteau' AND etat_materiel = 'Propre'";
+                                SQLQuery.operationToDB("Materiel", "quantite_materiel", tables.couver, condition, false);
+                                condition = "nom_materiel = 'Cuillère' AND etat_materiel = 'Propre'";
+                                SQLQuery.operationToDB("Materiel", "quantite_materiel", tables.couver, condition, false);
+                                condition = "nom_materiel = 'Assiette plate' AND etat_materiel = 'Propre'";
+                                SQLQuery.operationToDB("Materiel", "quantite_materiel", tables.couver, condition, false);
+                                condition = "nom_materiel = 'Verre à eau' AND etat_materiel = 'Propre'";
+                                SQLQuery.operationToDB("Materiel", "quantite_materiel", tables.couver, condition, false);
+
                                 //ajouter les couverts à la table
-                                tables.couver = customGroup.customerList.Count();
+                                
                                 Room.waiterList[IdRankChief].tablesTemp.Add(tables.tableId);
                                 Room.waiterList[IdRankChief].nbrCustomerTemp.Add(tables.couver);
 

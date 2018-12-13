@@ -43,6 +43,17 @@ namespace MasterChefResto.model
                     {
                         //se déplace à la position de la table table.tableId
                         //ajoute le nombre de couverts à la bdd
+                        //update materiel set quantite_materiel = quantite_materiel + nbrdeplacesurlatable where nom_materiel = 'Fourchette' AND etat_materiel = 'Sale';
+                        String condition = "nom_materiel = 'Fourchette' AND etat_materiel = 'Sale'";
+                        SQLQuery.operationToDB("Materiel", "quantite_materiel", table.NumberOfPlace, condition, true);
+                        condition = "nom_materiel = 'Couteau' AND etat_materiel = 'Sale'";
+                        SQLQuery.operationToDB("Materiel", "quantite_materiel", table.NumberOfPlace, condition, true);
+                        condition = "nom_materiel = 'Cuillère' AND etat_materiel = 'Sale'";
+                        SQLQuery.operationToDB("Materiel", "quantite_materiel", table.NumberOfPlace, condition, true);
+                        condition = "nom_materiel = 'Assiette plate' AND etat_materiel = 'Sale'";
+                        SQLQuery.operationToDB("Materiel", "quantite_materiel", table.NumberOfPlace, condition, true);
+                        condition = "nom_materiel = 'Verre à eau' AND etat_materiel = 'Sale'";
+                        SQLQuery.operationToDB("Materiel", "quantite_materiel", table.NumberOfPlace, condition, true);
                         SetTable(table);
                         cleaned = true;
                         socket.senddirty();
@@ -63,6 +74,7 @@ namespace MasterChefResto.model
             table.State_Diner = "Clean";
         }
 
+        //Sert à servir les plats de la zone temporaire (qui viennent d'être cuisiné et attendent à être servis) aux clients correspondants
         public void ServeCustomer()
         {
             //check si une commande est complete
@@ -240,11 +252,6 @@ namespace MasterChefResto.model
                     toKill = false;
                 }
             }
-        }
-
-        public void Update(Command command)
-        {
-            throw new NotImplementedException();
         }
 
         public void Update(Command command)

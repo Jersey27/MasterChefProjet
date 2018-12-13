@@ -10,16 +10,18 @@ namespace MasterChefResto.model
     public class RoomClerk : Staff
     {
         static RoomClerk instance = new RoomClerk();
+        public bool HaveToKillHimself;
 
         public RoomClerk()
         {
+            HaveToKillHimself = false;
             Thread RoomClerkThread;
             RoomClerkThread = new Thread(new ThreadStart(CheckStateTable));
         }
 
         public void CheckStateTable()
         {
-            while (Thread.CurrentThread.IsAlive)
+            while (!HaveToKillHimself)
             {
                 Boolean served = false;
                 foreach (Table table in Room.tableList)

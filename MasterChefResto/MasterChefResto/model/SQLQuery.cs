@@ -42,7 +42,7 @@ namespace MasterChefResto.model
             return result;
         }
 
-        public void operationToDB(string table, string column, int value, string condition, bool operation)
+        public static void operationToDB(string table, string column, int value, string condition, bool operation)
         {
             string operateur;
             if (operation)
