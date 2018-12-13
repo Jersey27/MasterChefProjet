@@ -8,21 +8,13 @@ namespace MasterChefCuisineTest.Model
     public class PlungerTests
     {
         Plunger plunger = new Plunger();
-        IMachine whashingMachine = new WashingMachine();
-
-        SQLQuery query;
+        
+        SQLQuery query = SQLQuery.getInstance();
 
         [TestMethod]
         public void washTest()
         {
             plunger.Wash();
-            Assert.Fail();
-        }
-
-        [TestMethod]
-        public void StoreTest()
-        {
-            Assert.Fail();
         }
     }
 }

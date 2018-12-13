@@ -71,7 +71,6 @@
     <Compile Include="Model\SQLConnectorTests.cs" />
     <Compile Include="Model\SQLQueryTests.cs" />
     <Compile Include="Model\TempStorageTests.cs" />
-    <Compile Include="Model\WashingMachineTests.cs" />
     <Compile Include="View\IViewTests.cs" />
   </ItemGroup>
   <ItemGroup>

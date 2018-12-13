@@ -52,9 +52,36 @@ namespace MasterChefCuisine.Model
         /// <param name="value">La nouvelle valeur</param>
         /// <param name="condition">La condition spécifique pour les données</param>
         /// <param name="connection">la connection à la base de données</param>
-        public void updateDB(string table, string column, string value, string condition, SqlConnection connection)
+        public void updateDB(string table, string column, string value, string condition)
         {
+            SqlConnection connection = connector.connection;
             string cmd = string.Format("UPDATE {0} SET {1} = '{2}' WHERE {3};", table, column, value, condition);
+            query = new SqlCommand(cmd, connection);
+            query.ExecuteNonQuery();
+        }
+
+        public void updateDB(string table, string column, int value, string condition)
+        {
+            SqlConnection connection = connector.connection;
+            string cmd = string.Format("UPDATE {0} SET {1} = {2} WHERE {3};", table, column, value, condition);
+            query = new SqlCommand(cmd, connection);
+            query.ExecuteNonQuery();
+        }
+
+        public void operationToDB(string table, string column, int value, string condition, bool operation)
+        {
+            SqlConnection connection = connector.connection;
+            string operateur;
+            if(operation)
+            {
+                operateur = "+";
+            }
+            else
+            {
+                operateur = "-";
+            }
+
+            string cmd = string.Format("UPDATE {0} SET {1} = {1} {4} {2} WHERE {3};", table, column, value, condition, operateur);
             query = new SqlCommand(cmd, connection);
             query.ExecuteNonQuery();
         }
