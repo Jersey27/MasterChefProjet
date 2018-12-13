@@ -13,12 +13,11 @@ namespace MasterChefCuisine.Model
         SQLQuery query = SQLQuery.getInstance();
         public void plunger()
         {
-            machines = machines;
         }
         public void Wash()
         {
             // On met dans un ArrayList le matos sale récup sur la BDD
-            ArrayList matos = query.selectFromDB("nom_materiel, quantite_materiel", "Materiel", "etat_materiel = 'Sale'");
+            ArrayList matos = query.selectFromDB("nom_materiel, quantite_materiel", "Materiel", "etat_materiel = 'Sale' AND quantite_materiel != 0");
             // La liste de chose en machine prêtes à laver
             List<string> nom = new List<string>();
             List<int> qte = new List<int>();
@@ -45,6 +44,8 @@ namespace MasterChefCuisine.Model
 
                         string condition = string.Format("nom_materiel = '{0}' AND etat_materiel = '{1}'", nom.First(), "Propre");
                         query.operationToDB("Materiel", "quantite_materiel", mat, condition, true);
+                        condition = string.Format("nom_materiel = '{0}' AND etat_materiel = '{1}'", nom.First(), "Sale");
+                        query.operationToDB("Materiel", "quantite_materiel", mat, condition, false);
                     }
                     else if (qte.First() <= 15 - washing)
                     {
@@ -55,6 +56,8 @@ namespace MasterChefCuisine.Model
 
                         string condition = string.Format("nom_materiel = '{0}' AND etat_materiel = '{1}'", nom.First(), "Propre");
                         query.operationToDB("Materiel", "quantite_materiel", mat, condition, true);
+                        condition = string.Format("nom_materiel = '{0}' AND etat_materiel = '{1}'", nom.First(), "Sale");
+                        query.operationToDB("Materiel", "quantite_materiel", mat, condition, false);
 
                         qte.RemoveAt(0);
                         nom.RemoveAt(0);

@@ -17,7 +17,7 @@ namespace MasterChefCuisineTest.Model
         {
             SqlConnection connection = new SqlConnection("server=10.176.50.33;" + "user id=projet-resto;" + "password=azerty123;" + "database=masterchef;" + "connection timeout=30");
             connection.Open();
-            string cmd = string.Format("SELECT * FROM Materiel WHERE nom_materiel = 'Cuitochette';");
+            string cmd = string.Format("SELECT * FROM Materiel WHERE nom_materiel = 'Nappe' AND etat_materiel = 'Propre' ;");
             SqlCommand query = new SqlCommand(cmd, connection);
             SqlDataReader reader = query.ExecuteReader();
             ArrayList result = new ArrayList();
@@ -31,12 +31,12 @@ namespace MasterChefCuisineTest.Model
 
             foreach(object[] i in result)
             {
-                Assert.AreEqual(10, (int)i[0]);
+                Assert.AreEqual(31, (int)i[0]);
             }
 
             foreach (object[] i in result)
             {
-                Assert.AreEqual("Cuitochette", i[1].ToString());
+                Assert.AreEqual("Nappe", i[1].ToString());
             }
 
             foreach (object[] i in result)
@@ -46,12 +46,12 @@ namespace MasterChefCuisineTest.Model
 
             foreach (object[] i in result)
             {
-                Assert.AreEqual("Sale", i[3].ToString());
+                Assert.AreEqual("Propre", i[3].ToString());
             }
 
             foreach (object[] i in result)
             {
-                Assert.AreEqual(150, (int)i[4]);
+                Assert.AreEqual(40, (int)i[4]);
             }
         }
 
@@ -61,7 +61,7 @@ namespace MasterChefCuisineTest.Model
             SqlConnection connection = new SqlConnection("server=10.176.50.33;" + "user id=projet-resto;" + "password=azerty123;" + "database=masterchef;" + "connection timeout=30");
             connection.Open();
 
-            string cmd = string.Format("SELECT quantite_materiel FROM Materiel WHERE nom_materiel = 'Cuitochette';");
+            string cmd = string.Format("SELECT quantite_materiel FROM Materiel WHERE nom_materiel = 'Cuitochette' AND etat_materiel = 'Sale' ;");
             SqlCommand query = new SqlCommand(cmd, connection);
             SqlDataReader reader = query.ExecuteReader();
 
@@ -78,16 +78,16 @@ namespace MasterChefCuisineTest.Model
 
             foreach(object[] i in result)
             {
-                if ((int)i[0] != 150)
+                if ((int)i[0] != 15)
                     Assert.Fail();
             }
             result.Clear();
 
-            cmd = string.Format("UPDATE Materiel SET quantite_materiel = 149 WHERE nom_materiel = 'Cuitochette';");
+            cmd = string.Format("UPDATE Materiel SET quantite_materiel = 149 WHERE nom_materiel = 'Cuitochette' AND etat_materiel = 'Sale';");
             query = new SqlCommand(cmd, connection);
             query.ExecuteNonQuery();
 
-            cmd = string.Format("SELECT quantite_materiel FROM Materiel WHERE nom_materiel = 'Cuitochette';");
+            cmd = string.Format("SELECT quantite_materiel FROM Materiel WHERE nom_materiel = 'Cuitochette' AND etat_materiel = 'Sale';");
             query = new SqlCommand(cmd, connection);
             reader = query.ExecuteReader();
 
@@ -104,7 +104,7 @@ namespace MasterChefCuisineTest.Model
                 Assert.AreEqual((int)i[0], 149);
             }
 
-            cmd = string.Format("UPDATE Materiel SET quantite_materiel = 150 WHERE nom_materiel = 'Cuitochette';");
+            cmd = string.Format("UPDATE Materiel SET quantite_materiel = 15 WHERE nom_materiel = 'Cuitochette' AND etat_materiel = 'Sale';");
             query = new SqlCommand(cmd, connection);
             query.ExecuteNonQuery();
         }
@@ -112,7 +112,7 @@ namespace MasterChefCuisineTest.Model
         [TestMethod]
         public void getRecipe()
         {
-            object[] j = new object[6];
+            object[] j = new object[7];
             ArrayList array = new ArrayList();
             Recipe recipe = new Recipe();
             j[0] = 1;
@@ -121,36 +121,18 @@ namespace MasterChefCuisineTest.Model
             j[3] = 0;
             j[4] = 20;
             j[5] = 8;
+            j[6] = 1;
             array.Add(j);
 
             foreach (object[] i in array)
             {
                 recipe.IdRecipe = (int)i[0];
-            }
-
-            foreach (object[] i in array)
-            {
                 recipe.NameRecipe = i[1].ToString();
-            }
-
-            foreach (object[] i in array)
-            {
                 recipe.tpsCook = (int)i[2];
-            }
-
-            foreach (object[] i in array)
-            {
                 recipe.tpsRest = (int)i[3];
-            }
-
-            foreach (object[] i in array)
-            {
                 recipe.tpsPrep = (int)i[4];
-            }
-
-            foreach (object[] i in array)
-            {
                 recipe.nombre_parts = (int)i[5];
+                recipe.available = (int)i[6] == 1;
             }
 
             Assert.AreEqual(1, recipe.IdRecipe);
@@ -159,6 +141,7 @@ namespace MasterChefCuisineTest.Model
             Assert.AreEqual(0, recipe.tpsRest);
             Assert.AreEqual(20, recipe.tpsPrep);
             Assert.AreEqual(8, recipe.nombre_parts);
+            Assert.AreEqual(true, recipe.available);
         }
 
         [TestMethod]

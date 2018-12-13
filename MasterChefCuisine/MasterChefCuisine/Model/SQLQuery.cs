@@ -106,33 +106,13 @@ namespace MasterChefCuisine.Model
             foreach (object[] i in recipeDB)
             {
                 recipe.IdRecipe = (int)i[0];
-            }
-
-            foreach (object[] i in recipeDB)
-            {
                 recipe.NameRecipe = i[1].ToString();
-            }
-
-            foreach (object[] i in recipeDB)
-            {
                 recipe.tpsCook = (int)i[2];
-            }
-
-            foreach (object[] i in recipeDB)
-            {
                 recipe.tpsRest = (int)i[3];
-            }
-
-            foreach (object[] i in recipeDB)
-            {
                 recipe.tpsPrep = (int)i[4];
-            }
-
-            foreach (object[] i in recipeDB)
-            {
                 recipe.nombre_parts = (int)i[5];
+                recipe.available = (bool)i[6];
             }
-
             condition = string.Format("id_recette = {0}", recipe.IdRecipe);
             ings = selectFromDB("id_ingredient, quantite_ingredient_recette", "Composition_ingredient", condition);
 
@@ -237,7 +217,7 @@ namespace MasterChefCuisine.Model
         {
             SqlConnection connection = connector.connection;
             Ingredient ingredient1 = getIngredient(ingredient.NomIngredient);
-            updateDB("Ingredients", "quantite_ingredient", (ingredient1.quantityIngredient - ingredient.quantityIngredient).ToString(), "Nom_Ingredient='" + ingredient1.NomIngredient + "'", connection);
+            updateDB("Ingredients", "quantite_ingredient", (ingredient1.quantityIngredient - ingredient.quantityIngredient).ToString(), "Nom_Ingredient='" + ingredient1.NomIngredient + "'");
         }
         public static SQLQuery getInstance()
         {

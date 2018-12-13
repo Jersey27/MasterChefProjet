@@ -71,11 +71,11 @@ namespace MasterChefCuisine.Model
         {
             foreach (Ingredient ing in command.recipe.Ingredients)
             {
-                //Ingredient stockIng = query.getIngredient();
-                //if (stockIng.quantityIngredient - ing.quantityIngredient)
-                //{
-
-                //}
+                Ingredient stockIng = query.getIngredient(ing.NomIngredient);
+                if (stockIng.quantityIngredient < ing.quantityIngredient * 2)
+                {
+                    query.updateDB("Recettes", "available", "false", "nom_recette = '" + command.recipe.NameRecipe + "'");
+                }
             }
             return true;
         }

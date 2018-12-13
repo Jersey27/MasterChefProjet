@@ -12,13 +12,17 @@ namespace MasterChefCuisine.Model
         public List<PartChief> cooks;
         public List<Clerk> clerks;
         public List<Plunger> plungers;
-        public List<WashingMachine> washingMachines;
 
         private static Kitchen instance = new Kitchen();
 
         public Kitchen()
         {
-
+            //chief = Chief.getInstance(false);
+            //cooks.Add(new PartChief(false));
+            //cooks.Add(new PartChief(false));
+            //clerks.Add(new Clerk(false));
+            //clerks.Add(new Clerk(false));
+            //plungers.Add(new Plunger());
         }
 
         public static Kitchen getInstance()
