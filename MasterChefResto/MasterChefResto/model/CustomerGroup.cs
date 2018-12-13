@@ -11,7 +11,7 @@ namespace MasterChefResto.model
         public int GroupNumber { get; set; }
         public int NbrCustomerInGroup { get; set; }
         public int TableAssigned { get; set; }
-        public Boolean Seated { get; set; }
+        public Boolean Seated { get; set; } 
         public Boolean Commanded { get; set; }
         public Boolean Finished { get; set; }
         public List<Customer> customerList;

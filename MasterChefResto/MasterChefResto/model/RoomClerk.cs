@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MasterChefResto.model
@@ -12,30 +13,34 @@ namespace MasterChefResto.model
 
         public RoomClerk()
         {
-
+            Thread RoomClerkThread;
+            RoomClerkThread = new Thread(new ThreadStart(CheckStateTable));
         }
 
         public void CheckStateTable()
         {
-            Boolean served = false;
-            foreach (Table table in Room.tableList)
+            while (Thread.CurrentThread.IsAlive)
             {
-                if (!table.Bread || !table.Water)
+                Boolean served = false;
+                foreach (Table table in Room.tableList)
                 {
-                    ///////////////////////////////////////////////////
-                    //*à faire*////////////////////////////////////////
-                    ///////////////////////////////////////////////////
-                    //se déplace à la position de la table table.tableId
-                    Distribute(table);
-                    served = true;
-                }
-                if (served)
-                {
-                    ///////////////////////////////////////////////////
-                    //*à faire*////////////////////////////////////////
-                    ///////////////////////////////////////////////////
-                    //retourne à sa position d'observation
-                    served = false;
+                    if (!table.Bread || !table.Water)
+                    {
+                        ///////////////////////////////////////////////////
+                        //*à faire*////////////////////////////////////////
+                        ///////////////////////////////////////////////////
+                        //se déplace à la position de la table table.tableId
+                        Distribute(table);
+                        served = true;
+                    }
+                    if (served)
+                    {
+                        ///////////////////////////////////////////////////
+                        //*à faire*////////////////////////////////////////
+                        ///////////////////////////////////////////////////
+                        //retourne à sa position d'observation
+                        served = false;
+                    }
                 }
             }
         }

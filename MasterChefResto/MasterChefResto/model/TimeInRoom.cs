@@ -9,12 +9,14 @@ namespace MasterChefResto.model
 {
     public class TimeInRoom
     {
+        public static int TimeUnit { set; get; }
         public static int Hour { set; get; }
         public static int Minute { set; get; }
         private static TimeInRoom instance = new TimeInRoom();
         
         private TimeInRoom()
         {
+            TimeUnit = 1000;
             Thread TimeThread;
             TimeThread = new Thread(new ThreadStart(ThreadLoop));
         }
@@ -26,7 +28,7 @@ namespace MasterChefResto.model
             Random random = new Random();
             while (Thread.CurrentThread.IsAlive)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(TimeUnit);
                 AddMinute();
                 increment++;
                 if ((Hour > 12 && Hour < 15) || (Hour > 19 && Hour < 22))

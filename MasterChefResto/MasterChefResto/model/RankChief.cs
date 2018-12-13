@@ -9,21 +9,24 @@ namespace MasterChefResto.model
 {
     public class RankChief : Staff
     {
+        public int IdRankChief;
         public List<Table> tableOfThisRankChief;
         public bool Busy { get; set; }
         public List<String> menuStarter;
         public List<String> menuMainCourse;
         public List<String> menuDessert;
+        public Waiter waiter;
 
-        public RankChief()
+        public RankChief(Waiter waiter, int IdRankChief)
         {
+            this.IdRankChief = IdRankChief;
+            this.waiter = waiter;
             menuStarter = new List<String>();
             menuStarter = SQLQuery.getRecipe("Entrée");
             menuMainCourse = new List<String>();
             menuMainCourse = SQLQuery.getRecipe("Plat");
             menuDessert = new List<String>();
             menuDessert = SQLQuery.getRecipe("Dessert");
-
             tableOfThisRankChief = new List<Table>();
             Thread MasterHotelThread;
             MasterHotelThread = new Thread(new ThreadStart(RankChiefLoop));
@@ -37,21 +40,22 @@ namespace MasterChefResto.model
                 //recherche des groupes de clients non-assignés à une table
                 foreach (CustomerGroup customGroup in Room.customerGroupList)
                 {
-                    foreach (Table tables in tableOfThisRankChief)
+                    foreach(Table tables in tableOfThisRankChief)
                     {
                         //si le groupe de client actuellement traité fait partit du carré dont le RankChief a la charge
-                        if (customGroup.TableAssigned == tables.tableId)
+                        if(customGroup.TableAssigned == tables.tableId)
                         {
                             //si les clients ne sont pas assis sur leur table
-                            if (customGroup.Seated == false)
+                            if(customGroup.Seated == false)
                             {
                                 //les ammène à leur table
                                 ///////////////////////////////////////////////////
                                 //*à faire*////////////////////////////////////////
                                 ///////////////////////////////////////////////////
                                 //les assigner à chaque chaise de la table
+                                customGroup.Seated = true;
                             }
-                            else if (customGroup.Commanded == false)
+                            else if(customGroup.Commanded == false)
                             {
                                 int nbrOfCommands = Room.commandList.Count();
                                 Room.commandList.Add(new Command());
