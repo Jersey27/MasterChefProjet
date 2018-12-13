@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    public class ReadyCounter
+    public abstract class ReadyCounter
     {
-        public void Sendplate(Recipe recipe)
+        public void Sendplate(Command command)
         {
 
         }

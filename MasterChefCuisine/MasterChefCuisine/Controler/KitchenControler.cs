@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MasterChefCuisine.View;
+using MasterChefCuisine.Model;
 
 namespace MasterChefCuisine.Controler
 {
@@ -13,6 +14,8 @@ namespace MasterChefCuisine.Controler
         public void Initiate()
         {
 
+            Kitchen kitchen = new Kitchen();
+            
         }
     }
 }

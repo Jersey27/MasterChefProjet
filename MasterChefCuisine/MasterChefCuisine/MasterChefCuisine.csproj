@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -49,22 +52,21 @@
   <ItemGroup>
     <Compile Include="Controler\KitchenControler.cs" />
     <Compile Include="Model\Chief.cs" />
-    <Compile Include="Model\CommandObserver.cs" />
-    <Compile Include="Model\Cook.cs" />
+    <Compile Include="Model\Clerk.cs" />
+    <Compile Include="Model\Command.cs" />
     <Compile Include="Model\DirtyDisheCounter.cs" />
-    <Compile Include="Model\DishWasher.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\ICook.cs" />
     <Compile Include="Model\Ingredient.cs" />
     <Compile Include="Model\Kitchen.cs" />
-    <Compile Include="Model\KitchenObserver.cs" />
     <Compile Include="Model\IMachine.cs" />
+    <Compile Include="Model\ObserverChief.cs" />
+    <Compile Include="Model\PartChief.cs" />
     <Compile Include="Model\Plunger.cs" />
     <Compile Include="Model\Position.cs" />
     <Compile Include="Model\Preparator.cs" />
     <Compile Include="Model\ReadyCounter.cs" />
     <Compile Include="Model\Recipe.cs" />
-    <Compile Include="Model\Sink.cs" />
     <Compile Include="Model\SocketManagement.cs" />
     <Compile Include="Model\SQLConnector.cs" />
     <Compile Include="Model\SQLQuery.cs" />
@@ -88,6 +90,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

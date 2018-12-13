@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace MasterChefCuisine.Model
 {
-    public class DishWasher : IMachine
+    public interface ObserverChief
     {
-        public void Wash()
-        {
-            throw new NotImplementedException();
-        }
+        void Update(Command command);
     }
 }

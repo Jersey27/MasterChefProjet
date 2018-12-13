@@ -4,12 +4,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MasterChefCuisineTest.Model
 {
     [TestClass]
-    public class SinkTests
+    public class CommandTest
     {
         [TestMethod]
-        public void WashTest()
+        public void TestMethod1()
         {
-            Assert.Fail();
+
         }
     }
 }

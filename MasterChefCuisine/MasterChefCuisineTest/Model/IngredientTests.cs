@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MasterChefCuisine.Model;
 
 namespace MasterChefCuisineTest.Model
 {
@@ -7,9 +8,12 @@ namespace MasterChefCuisineTest.Model
     public class IngredientTests
     {
         [TestMethod]
-        public void GetFromStorageTest()
+        public void IngredientTest()
         {
-            Assert.Fail();
+            Ingredient ingredientTest = new Ingredient { NomIngredient = "Tomate", typeIngredient = "Legume", quantityIngredient = 18 };
+            Assert.AreEqual(ingredientTest.NomIngredient, "Tomate");
+            Assert.AreEqual(ingredientTest.quantityIngredient, 18);
+            Assert.AreEqual(ingredientTest.typeIngredient, "Legume");
         }
     }
 }

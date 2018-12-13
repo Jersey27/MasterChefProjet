@@ -45,33 +45,32 @@
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controler\KitchenControlerTests.cs" />
     <Compile Include="Model\ChiefTests.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Model\ClerkTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\CommandObserverTests.cs" />
-    <Compile Include="Model\CookTests.cs" />
+    <Compile Include="Model\PartChiefTests.cs" />
     <Compile Include="Model\DirtyDisheCounterTests.cs" />
-    <Compile Include="Model\DishWasherTests.cs" />
     <Compile Include="Model\EmployeeTests.cs" />
     <Compile Include="Model\IngredientTests.cs" />
     <Compile Include="Model\KitchenTests.cs" />
-    <Compile Include="Model\KitchenObserverTests.cs" />
     <Compile Include="Model\PlungerTests.cs" />
     <Compile Include="Model\PositionTests.cs" />
     <Compile Include="Model\PreparatorTests.cs" />
     <Compile Include="Model\ReadyCounterTests.cs" />
     <Compile Include="Model\RecipeTests.cs" />
-    <Compile Include="Model\SinkTests.cs" />
     <Compile Include="Model\SocketManagementTests.cs" />
     <Compile Include="Model\SQLConnectorTests.cs" />
     <Compile Include="Model\SQLQueryTests.cs" />
     <Compile Include="Model\TempStorageTests.cs" />
-    <Compile Include="Model\WashingMachineTests.cs" />
     <Compile Include="View\IViewTests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,10 +9,11 @@ namespace MasterChefCuisine.Model
     public class WashingMachine : IMachine
     {
         bool isWashing;
+        SQLQuery query;
 
         public void Wash()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
