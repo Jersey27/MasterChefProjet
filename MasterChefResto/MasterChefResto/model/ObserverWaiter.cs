@@ -8,6 +8,6 @@ namespace MasterChefResto.model
 {
     public interface ObserverWaiter
     {
-         void Update(Command command);
+        void Update(Command command);
     }
 }

@@ -15,6 +15,7 @@ namespace MasterChefResto.model
         public List<String> dishInHand;
         public List<int> idClientToServe;
         public List<Table> TablesToServe;
+        SocketManagement socket = SocketManagement.getInstance();
 
         public Waiter(int IdWaiter)
         {
@@ -39,6 +40,7 @@ namespace MasterChefResto.model
                         //se déplace à la position de la table table.tableId
                         SetTable(table);
                         cleaned = true;
+                        socket.senddirty();
                     }
                     if (cleaned)
                     {
