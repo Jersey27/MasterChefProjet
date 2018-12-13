@@ -175,5 +175,10 @@ namespace MasterChefResto.model
             }
             
         }
+
+        public void Update(Command command)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

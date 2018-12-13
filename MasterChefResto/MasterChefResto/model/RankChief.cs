@@ -66,12 +66,12 @@ namespace MasterChefResto.model
                                 int increment = 0;
                                 foreach (Customer custom in customGroup.customerList)
                                 {
-                                    int choice = customGroup.customerList[increment].choseInMenu(0, menuStarter.Count() - 1);
+                                    int choice = customGroup.customerList[increment].chooseInMenu(0, menuStarter.Count() - 1);
                                     Room.commandList[nbrOfCommands].customer.Add(customGroup.customerList[increment]);
                                     Room.commandList[nbrOfCommands].Starter.Add(menuStarter[choice]);
-                                    choice = customGroup.customerList[increment].choseInMenu(0, menuMainCourse.Count() - 1);
+                                    choice = customGroup.customerList[increment].chooseInMenu(0, menuMainCourse.Count() - 1);
                                     Room.commandList[nbrOfCommands].Starter.Add(menuMainCourse[choice]);
-                                    choice = customGroup.customerList[increment].choseInMenu(0, menuDessert.Count() - 1);
+                                    choice = customGroup.customerList[increment].chooseInMenu(0, menuDessert.Count() - 1);
                                     Room.commandList[nbrOfCommands].Starter.Add(menuDessert[choice]);
                                 }
                                 Thread.Sleep(500);

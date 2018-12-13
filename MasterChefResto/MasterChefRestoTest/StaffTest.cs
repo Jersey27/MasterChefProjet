@@ -20,5 +20,29 @@ namespace MasterChefRestoTest
             LaString = Staff.CheckIfServiceEnded();
             Assert.AreEqual("En service", LaString);
         }
+
+        [TestMethod]
+        public void MoveToTheRight()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void MoveToTheLeft()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void MoveToTheTop()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void MoveToTheBottom()
+        {
+            Assert.Fail();
+        }
     }
 }

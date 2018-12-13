@@ -10,6 +10,12 @@ namespace MasterChefRestoTest
         RoomClerk roomClerk;
 
         [TestMethod]
+        public void CheckStateTable()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod]
         public void DistributeTest()
         {
             Table table = new Table(0, 4);

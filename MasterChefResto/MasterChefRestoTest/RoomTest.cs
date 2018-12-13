@@ -8,6 +8,20 @@ namespace MasterChefRestoTest
     public class RoomTest
     {
         Room room;
+
+        [TestMethod]
+        public void CreateCustomerGroup()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void CountNumberOfCustomer()
+        {
+            Assert.Fail();
+        }
+
+
         [TestMethod]
         public void getInstanceTest()
         {

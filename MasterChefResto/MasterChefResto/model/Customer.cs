@@ -141,7 +141,7 @@ namespace MasterChefResto.model
             }
         }
 
-        public int choseInMenu(int firstEntry, int lastEntry)
+        public int chooseInMenu(int firstEntry, int lastEntry)
         {
             Random random = new Random();
             int choice = random.Next(firstEntry, lastEntry);

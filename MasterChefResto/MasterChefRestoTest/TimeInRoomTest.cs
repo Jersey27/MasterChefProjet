@@ -10,6 +10,12 @@ namespace MasterChefRestoTest
         TimeInRoom time;
 
         [TestMethod]
+        public void ThreadLoop()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod]
         public void AddMinuteTest()
         {
             TimeInRoom.Minute = 58;

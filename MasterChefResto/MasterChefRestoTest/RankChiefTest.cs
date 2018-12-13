@@ -8,8 +8,9 @@ namespace MasterChefRestoTest
     public class RankChiefTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void RankChiefLoop()
         {
+            Assert.Fail();
         }
     }
 }

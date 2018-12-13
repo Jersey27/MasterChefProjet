@@ -42,6 +42,23 @@ namespace MasterChefResto.model
             return result;
         }
 
+        public void operationToDB(string table, string column, int value, string condition, bool operation)
+        {
+            string operateur;
+            if (operation)
+            {
+                operateur = "+";
+            }
+            else
+            {
+                operateur = "-";
+            }
+
+            string cmd = string.Format("UPDATE {0} SET {1} = {1} {4} {2} WHERE {3};", table, column, value, condition, operateur);
+            query = new SqlCommand(cmd, connector.connection);
+            query.ExecuteNonQuery();
+        }
+
 
         /// <summary>
         /// récupère la recette selon son type
