@@ -31,6 +31,7 @@ temps_repos_recette SMALLINT,
 temps_preparation_recette SMALLINT,
 nombre_parts SMALLINT NOT NULL,
 type_recette VARCHAR(10) NOT NULL CHECK (type_recette IN('Entrée','Plat', 'Dessert')),
+disponibilite_recette BIT NOT NULL DEFAULT 1,
 PRIMARY KEY (id_recette));
 
 
