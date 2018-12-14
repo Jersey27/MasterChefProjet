@@ -11,20 +11,34 @@ namespace MasterChefCuisine.Model
     {
         SocketManagement socket;
         private SQLQuery query = SQLQuery.getInstance();
+        TempStorage tempStorage = TempStorage.getInstance();
         static Semaphore semaphore = new Semaphore(1,1);
         public Clerk(bool isTest)
         {
-            socket = SocketManagement.getInstance(isTest);
+            if (!isTest)
+            {
+                socket = SocketManagement.getInstance(isTest);
+            }
         }
 
-        public bool sendPlate()
+        public void sendPlate()
         {
-            semaphore.WaitOne();
-            Command command = PartChief.listCommand.First(x => x.state == Command.commandState.Ready);
-            PartChief.listCommand.Remove(PartChief.listCommand.First());
-            semaphore.Release();
-            socket.sendPlate(command);
-            return true;
+            while (PartChief.listCommand.Any())
+            {
+                semaphore.WaitOne();
+                Command command = PartChief.listCommand.First(x => x.state == Command.commandState.Ready);
+                if (command != null)
+                {
+                    if (command.recipe.nombre_parts > 1)
+                    {
+                        command.recipe.prendrePart();
+                        tempStorage.repStore.Add(command.recipe);
+                    }
+                    PartChief.listCommand.Remove(PartChief.listCommand.First());
+                    semaphore.Release();
+                    socket.sendPlate(command);
+                }
+            }
         }
 
         public void bringIngredients(List<Ingredient> ingredients)
