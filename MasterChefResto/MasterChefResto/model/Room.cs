@@ -75,7 +75,7 @@ namespace MasterChefResto.model
                 increment = increment + 1;
             }
             increment = 0;
-            new MasterHotel();
+            MasterHotel.getInstance();
             
         }
 

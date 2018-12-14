@@ -10,12 +10,6 @@ namespace MasterChefRestoTest
         MasterHotel masterHotel;
 
         [TestMethod]
-        public void MasterHotelLoop()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod]
         public void getInstanceTest()
         {
             masterHotel = MasterHotel.getInstance();

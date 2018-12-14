@@ -7,13 +7,7 @@ namespace MasterChefRestoTest
     [TestClass]
     public class TimeInRoomTest
     {
-        TimeInRoom time;
-
-        [TestMethod]
-        public void ThreadLoop()
-        {
-            Assert.Fail();
-        }
+        TimeInRoom time = TimeInRoom.getInstance();
 
         [TestMethod]
         public void AddMinuteTest()

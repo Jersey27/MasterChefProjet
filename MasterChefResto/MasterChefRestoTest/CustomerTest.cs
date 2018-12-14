@@ -8,12 +8,6 @@ namespace MasterChefRestoTest
     public class CustomerTest
     {
         Customer customer = new Customer(2, 5, 6, 8);
-
-        [TestMethod]
-        public void CheckIfServed()
-        {
-            Assert.Fail();
-        }
         
         [TestMethod]
         public void chooseInMenu()

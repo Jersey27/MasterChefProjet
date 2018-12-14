@@ -7,10 +7,6 @@ namespace MasterChefRestoTest
     [TestClass]
     public class RankChiefTest
     {
-        [TestMethod]
-        public void RankChiefLoop()
-        {
-            Assert.Fail();
-        }
+
     }
 }

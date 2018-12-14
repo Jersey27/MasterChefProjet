@@ -12,7 +12,7 @@ namespace MasterChefResto.model
         public static bool HaveToKillHimself;
         static MasterHotel instance = new MasterHotel();
 
-        public MasterHotel()
+        private MasterHotel()
         {
             HaveToKillHimself = false;
             Thread MasterHotelThread;

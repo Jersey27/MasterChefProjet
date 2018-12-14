@@ -22,21 +22,5 @@ namespace MasterChefResto.model
             }
             return "En service";
         }
-        public void MoveToTheRight()
-        {
-            this.position.PosX = this.position.PosX + 1;
-        }
-        public void MoveToTheLeft()
-        {
-            this.position.PosX = this.position.PosX - 1;
-        }
-        public void MoveToTheTop()
-        {
-            this.position.PosY = this.position.PosY + 1;
-        }
-        public void MoveToTheBottom()
-        {
-            this.position.PosY = this.position.PosY - 1;
-        }
     }
 }
