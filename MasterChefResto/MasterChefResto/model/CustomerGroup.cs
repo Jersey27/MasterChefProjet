@@ -35,6 +35,7 @@ namespace MasterChefResto.model
                 int randomTimeToEatMainCourse = random.Next(15, 35);
                 int randomTimeToEatDessert = random.Next(5, 15);
                 customerList.Add(new Customer(NumberOfExistingCustomer, randomTimeToEatStarter, randomTimeToEatMainCourse, randomTimeToEatDessert));
+                increment = increment + 1;
             }
         }
     }
