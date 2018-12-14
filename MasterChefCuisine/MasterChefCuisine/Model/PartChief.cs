@@ -56,19 +56,37 @@ namespace MasterChefCuisine.Model
                 isBusy = true;
                 if (command != null)
                 {
-                    Task<Command> task1 = Task.Run(() => prepareLoop(command));
-                    task1.Wait();
-                    isBusy = false;
-                    if (command.recipe.tpsCook > 0)
+                    Recipe tempRecipe = tempStorage.repStore.Find(x => x == command.recipe);
+                    if (tempRecipe == null)
                     {
-                        command.state = Command.commandState.isCooking;
-                        Task<Command> task3 = Task.Run(() => BakingLoop(command));
-
-                        if (command.recipe.tpsRest > 0)
+                        Task<Command> task1 = Task.Run(() => prepareLoop(command));
+                        task1.Wait();
+                        isBusy = false;
+                        if (command.recipe.tpsCook > 0)
                         {
-                            task3.Wait();
+                            command.state = Command.commandState.isCooking;
+                            Task<Command> task3 = Task.Run(() => BakingLoop(command));
+
+                            if (command.recipe.tpsRest > 0)
+                            {
+                                task3.Wait();
+                                command.state = Command.commandState.isResting;
+                                Task<Command> task2 = Task.Run(() => restingLoop(command));
+                                listCommand.Add(command);
+                                foreach (Clerk clerk in clerks)
+                                {
+                                    clerk.sendPlate();
+                                }
+                            }
+                        }
+                        else if (command.recipe.tpsRest > 0)
+                        {
                             command.state = Command.commandState.isResting;
                             Task<Command> task2 = Task.Run(() => restingLoop(command));
+                            listCommand.Add(command);
+                        }
+                        else
+                        {
                             listCommand.Add(command);
                             foreach (Clerk clerk in clerks)
                             {
@@ -76,20 +94,11 @@ namespace MasterChefCuisine.Model
                             }
                         }
                     }
-                    else if (command.recipe.tpsRest > 0)
-                    {
-                        command.state = Command.commandState.isResting;
-                        Task<Command> task2 = Task.Run(() => restingLoop(command));
-                        listCommand.Add(command);
-                        foreach (Clerk clerk in clerks)
-                        {
-                            clerk.sendPlate();
-                        }
-                    }
                     else
                     {
+                        command.state = Command.commandState.Ready;
                         listCommand.Add(command);
-                        foreach (Clerk clerk in clerks)
+                        foreach(Clerk clerk in clerks)
                         {
                             clerk.sendPlate();
                         }
@@ -113,6 +122,10 @@ namespace MasterChefCuisine.Model
                 if (com == search)
                 {
                     com.state = Command.commandState.Ready;
+                }
+                foreach (Clerk clerk in clerks)
+                {
+                    clerk.sendPlate();
                 }
             }
 
