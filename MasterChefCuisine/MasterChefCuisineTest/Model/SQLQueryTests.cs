@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Data.SqlClient;
 using MasterChefCuisine.Model;
@@ -15,10 +15,8 @@ namespace MasterChefCuisineTest.Model
         [TestMethod]
         public void selectFromDB()
         {
-            SqlConnection connection = new SqlConnection("server=10.176.50.33;" + "user id=projet-resto;" + "password=azerty123;" + "database=masterchef;" + "connection timeout=30");
-            connection.Open();
             string cmd = string.Format("SELECT * FROM Materiel WHERE nom_materiel = 'Nappe' AND etat_materiel = 'Propre' ;");
-            SqlCommand query = new SqlCommand(cmd, connection);
+            SqlCommand query = new SqlCommand(cmd, connector.connection);
             SqlDataReader reader = query.ExecuteReader();
             ArrayList result = new ArrayList();
 
@@ -97,73 +95,34 @@ namespace MasterChefCuisineTest.Model
         [TestMethod]
         public void getRecipe()
         {
-            object[] j = new object[7];
-            ArrayList array = new ArrayList();
-            Recipe recipe = new Recipe();
-            j[0] = 1;
-            j[1] = "Pizza";
-            j[2] = 10;
-            j[3] = 0;
-            j[4] = 20;
-            j[5] = 8;
-            j[6] = 1;
-            array.Add(j);
+            SQLQuery instance = SQLQuery.getInstance();
 
-            foreach (object[] i in array)
-            {
-                recipe.IdRecipe = (int)i[0];
-                recipe.NameRecipe = i[1].ToString();
-                recipe.tpsCook = (int)i[2];
-                recipe.tpsRest = (int)i[3];
-                recipe.tpsPrep = (int)i[4];
-                recipe.nombre_parts = (int)i[5];
-                recipe.available = (int)i[6] == 1;
-            }
+            Recipe recipe = instance.getRecipe("Pâtes carbonara");
 
-            Assert.AreEqual(1, recipe.IdRecipe);
-            Assert.AreEqual("Pizza", recipe.NameRecipe);
-            Assert.AreEqual(10, recipe.tpsCook);
+            Assert.AreEqual(19, recipe.IdRecipe);
+            Assert.AreEqual("Pâtes carbonara", recipe.NameRecipe);
+            Assert.AreEqual(15, recipe.tpsCook);
             Assert.AreEqual(0, recipe.tpsRest);
-            Assert.AreEqual(20, recipe.tpsPrep);
-            Assert.AreEqual(8, recipe.nombre_parts);
+            Assert.AreEqual(5, recipe.tpsPrep);
+            Assert.AreEqual(4, recipe.nombre_parts);
+            Assert.AreEqual("Plat", recipe.typeRecipe);
             Assert.AreEqual(true, recipe.available);
         }
 
         [TestMethod]
         public void getIngredient()
         {
-            object[] j = new object[6];
-            ArrayList array = new ArrayList();
-            Ingredient ingredient = new Ingredient();
-            j[0] = 1;
-            j[1] = "Tomate";
-            j[2] = "Longue conserv";
-            j[3] = 25;
-            j[4] = "11/12/2018";
-            j[5] = 1;
-            array.Add(j);
+            SQLQuery instance = SQLQuery.getInstance();
 
-            foreach (object[] i in array)
-            {
-                ingredient.NomIngredient = i[1].ToString();
-                ingredient.typeIngredient = i[2].ToString();
-                ingredient.quantityIngredient = (int)i[3];
-                ingredient.datePeremption = Convert.ToDateTime(i[4]);
-                ingredient.canBePrepared = Convert.ToBoolean(i[5]);
-            }
+            Ingredient ingredient = instance.getIngredient(2);
 
-            Assert.AreEqual("Tomate", ingredient.NomIngredient);
-            Assert.AreEqual("Longue conserv", ingredient.typeIngredient);
-            Assert.AreEqual(25, ingredient.quantityIngredient);
-            Assert.AreEqual(Convert.ToDateTime("11/12/2018 00:00:00"), ingredient.datePeremption);
+            Assert.AreEqual("Oeufs", ingredient.NomIngredient);
+            Assert.AreEqual("Frais", ingredient.typeIngredient);
+            Assert.AreEqual(200, ingredient.quantityIngredient);
+            Assert.AreEqual(Convert.ToDateTime("20/12/2018 00:00:00"), ingredient.datePeremption);
             Assert.AreEqual(Convert.ToBoolean(1), ingredient.canBePrepared);
         }
 
-        [TestMethod]
-        public void TakeIngredient()
-        {
-            
-        }
     }
 
 }
