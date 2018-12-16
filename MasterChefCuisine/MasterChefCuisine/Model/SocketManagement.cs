@@ -19,7 +19,7 @@ namespace MasterChefCuisine.Model
         private IPAddress ip = IPAddress.Parse("10.176.129.194");
         private Socket socket, client;
         private bool service = true;
-        List<Plunger> plungers = new List<Plunger>();
+        List<Plunger> plungers = new List<Plunger>;
         private object socketmanager;
         #endregion
         private SocketManagement(bool isTest)
