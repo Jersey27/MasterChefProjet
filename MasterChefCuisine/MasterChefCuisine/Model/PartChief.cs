@@ -24,7 +24,6 @@ namespace MasterChefCuisine.Model
         {
             if (listCommand == null)
                 listCommand = new List<Command>();
-            ThreadPool.SetMaxThreads(1, 5);
             chief = Chief.getInstance(isTest);
             chief.AddObserverCook(this);
             thread = new Thread(cooking);
@@ -36,8 +35,8 @@ namespace MasterChefCuisine.Model
             if(!listCommand.Exists(x => x.Commandid == command.Commandid) && !listCommand.Exists(x => x.recipe == command.recipe))
             {
                 listCommand.Add(command);
-                semaphoreNewCommand.Release();
             }
+            semaphoreNewCommand.Release();
             if (!thread.IsAlive)
             {
                 thread.Start();
@@ -47,7 +46,7 @@ namespace MasterChefCuisine.Model
         TempStorage tempStorage = TempStorage.getInstance();
         public void cooking()
         {
-            while (listCommand.Any())
+            while (listCommand.Any( x => x.state == Command.commandState.notReady))
             {
                 semaphorePreparation.WaitOne();
                 Command command = listCommand.First(x => x.state == Command.commandState.notReady);
@@ -56,6 +55,14 @@ namespace MasterChefCuisine.Model
                 isBusy = true;
                 if (command != null)
                 {
+                   foreach(Clerk clerk in clerks)
+                    {
+                        bool sended = false;
+                        if (sended == false)
+                        {
+                            clerk.bringIngredients(command.recipe.Ingredients);
+                        }
+                    }
                     Recipe tempRecipe = tempStorage.repStore.Find(x => x == command.recipe);
                     if (tempRecipe == null)
                     {
@@ -72,21 +79,16 @@ namespace MasterChefCuisine.Model
                                 task3.Wait();
                                 command.state = Command.commandState.isResting;
                                 Task<Command> task2 = Task.Run(() => restingLoop(command));
-                                listCommand.Add(command);
-                                foreach (Clerk clerk in clerks)
-                                {
-                                    clerk.sendPlate();
-                                }
                             }
                         }
                         else if (command.recipe.tpsRest > 0)
                         {
                             command.state = Command.commandState.isResting;
                             Task<Command> task2 = Task.Run(() => restingLoop(command));
-                            listCommand.Add(command);
                         }
                         else
                         {
+                            command.state = Command.commandState.Ready;
                             listCommand.Add(command);
                             foreach (Clerk clerk in clerks)
                             {
@@ -107,20 +109,22 @@ namespace MasterChefCuisine.Model
             }
         }
         #region cooking method
+
         public Command prepareLoop(Command command)
         {
             Thread.Sleep(command.recipe.tpsPrep * 1000);
             return command;
         }
+
         public Command restingLoop(Command command)
         {
             tempStorage.comStore.Add(command);
-            Thread.Sleep(command.recipe.tpsRest * 1000);
             Command search = tempStorage.comStore.Find(x => x.Commandid == command.Commandid);
             foreach (Command com in tempStorage.comStore)
             {
                 if (com == search)
                 {
+                    Thread.Sleep(com.recipe.tpsRest * 1000);
                     com.state = Command.commandState.Ready;
                 }
                 foreach (Clerk clerk in clerks)
@@ -131,6 +135,7 @@ namespace MasterChefCuisine.Model
 
             return command;
         }
+
         public Command BakingLoop(Command command)
         {
             Thread.Sleep(command.recipe.tpsCook * 1000);

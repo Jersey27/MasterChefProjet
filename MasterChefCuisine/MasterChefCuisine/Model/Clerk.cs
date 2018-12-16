@@ -19,11 +19,12 @@ namespace MasterChefCuisine.Model
             {
                 socket = SocketManagement.getInstance(isTest);
             }
+
         }
 
         public void sendPlate()
         {
-            while (PartChief.listCommand.Any())
+            while (PartChief.listCommand.Any(x => x.state == Command.commandState.Ready))
             {
                 semaphore.WaitOne();
                 Command command = PartChief.listCommand.First(x => x.state == Command.commandState.Ready);
